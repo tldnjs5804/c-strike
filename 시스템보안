@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# 작성자: 백시원
+
+echo "--- [보안 점검 시작] ---"
+
+# 1. U-15 파일 및 디렉터리 소유자 설정 점검
+# 소유자나 그룹이 지워진 파일(UID/GID만 남은 파일)이 있는지 체크합니다.
+echo "[U-15] Check: 소유자 없는 파일 및 디렉터리"
+
+# find 명령어로 소유자(-nouser)나 그룹(-nogroup)이 없는 요소를 찾습니다.
+# 시스템 부하를 방지하기 위해 -xdev 옵션을 넣었습니다.
+target_files=$(find / -xdev \( -nouser -o -nogroup \) 2>/dev/null)
+
+if [ -z "$target_files" ]; then
+    echo "결과: [양호] 모든 파일의 소유자가 명확합니다."
+else
+    echo "결과: [취약] 소유자가 불분명한 파일이 존재합니다. 삭제 또는 소유자 변경이 필요합니다."
+    echo "$target_files" | head -n 5
+    echo "...(이하 생략)"
+fi
+
+echo "------------------------"
+
+# 2. U-25 World Writable 파일 점검
+# 일반 사용자에게 쓰기 권한이 부여된 위험한 파일을 점검합니다.
+echo "[U-25] Check: World Writable 파일"
+
+# -perm -2는 'Other' 사용자에게 'Write' 권한이 있는 파일을 의미합니다.
+ww_list=$(find / -xdev -type f -perm -2 -ls 2>/dev/null)
+
+if [ -z "$ww_list" ]; then
+    echo "결과: [양호] World Writable 파일이 발견되지 않았습니다."
+else
+    echo "결과: [취약] 보안상 위험할 수 있는 World Writable 파일이 발견되었습니다."
+    # 파일 경로와 권한을 같이 출력해서 가독성을 높였습니다.
+    echo "$ww_list" | awk '{print "경로:", $11, "| 권한:", $3}' | head -n 10
+fi
+
+echo "--- [점검 종료] ---"
