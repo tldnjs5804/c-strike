@@ -16,13 +16,13 @@ export default function Board() {
             </p>
             <Link
               to="/write"
-              className="offset-btn border border-attack bg-bg-base px-4 py-2.5 font-mono text-[12.5px] font-semibold uppercase tracking-wide text-attack"
+              className="rounded-md bg-attack px-4 py-2.5 font-mono text-[13px] font-semibold text-white transition-all hover:bg-attack-dark active:scale-[0.96]"
             >
               문의 남기기
             </Link>
           </div>
 
-          <div className="reveal stagger-children border border-border">
+          <div className="reveal stagger-children overflow-hidden rounded-xl border border-border bg-bg-card">
             <div className="hidden grid-cols-[110px_1fr_90px_100px] gap-3.5 border-b border-border bg-bg-surface px-5 py-3 font-mono text-[11px] uppercase tracking-wide text-text-muted sm:grid">
               <span>상태</span>
               <span>제목</span>

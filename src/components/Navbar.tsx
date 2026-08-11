@@ -9,15 +9,6 @@ const NAV_ITEMS = [
   { label: "문의하기", href: "/contact" },
 ];
 
-function Mark() {
-  return (
-    <span className="flex h-[18px] shrink-0 items-center" aria-hidden>
-      <span className="h-[18px] w-[18px] bg-attack" />
-      <span className="-ml-[7px] h-[18px] w-[18px] bg-defend" />
-    </span>
-  );
-}
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -27,12 +18,17 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-[100] border-b border-border bg-bg-base">
-      <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-6 sm:px-8">
-        <Link to="/" className="flex items-center gap-3 font-mono text-[16px] font-bold tracking-tight">
-          <Mark />
+    <nav className="fixed inset-x-0 top-0 z-[100] border-b border-border bg-bg-base/95">
+      <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between px-6 sm:px-8">
+        <Link to="/" className="flex items-center gap-2.5 font-mono text-[17px] font-bold tracking-tight">
+          <span
+            className="flex h-[26px] w-[26px] shrink-0"
+            style={{
+              background: "linear-gradient(135deg, var(--color-attack), var(--color-defend))",
+              clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+            }}
+          />
           {EVENT.name}
-          <span className="hidden font-mono text-[11px] font-normal text-text-muted sm:inline">/ {EVENT.year}</span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -42,29 +38,30 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`border-b-2 px-4 py-[22px] text-[14px] font-medium transition-colors ${
-                  active
-                    ? "border-attack text-text-primary"
-                    : "border-transparent text-text-secondary hover:border-border-strong hover:text-text-primary"
+                className={`relative rounded-md px-4 py-2.5 text-[14.5px] font-medium transition-colors ${
+                  active ? "bg-bg-surface-alt text-text-primary" : "text-text-secondary hover:bg-bg-surface-alt hover:text-text-primary"
                 }`}
               >
                 {item.label}
+                {active && (
+                  <span className="absolute inset-x-4 bottom-1 h-[2px] bg-defend shadow-[0_0_6px_rgba(45,227,200,0.35)]" />
+                )}
               </Link>
             );
           })}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Link
             to="/apply"
-            className="offset-btn hidden border border-attack bg-bg-base px-4 py-[7px] font-mono text-[12.5px] font-semibold uppercase tracking-wide text-attack sm:inline-block"
+            className="hidden rounded-md border border-attack bg-attack px-[18px] py-[9px] font-mono text-[13px] font-semibold tracking-wide text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_20px_rgba(255,70,85,0.35)] sm:inline-block"
           >
             지금 신청하기
           </Link>
           <button
             aria-label="메뉴 열기"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] border border-border-strong transition-colors hover:border-defend active:scale-95 md:hidden"
+            className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-md border border-border-strong transition-colors hover:border-defend active:scale-95 md:hidden"
           >
             <span className={`h-[1.5px] w-4 bg-text-primary transition-transform duration-200 ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
             <span className={`h-[1.5px] w-4 bg-text-primary transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
@@ -86,7 +83,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/apply"
-            className="mt-4 block border border-attack bg-attack px-4 py-3 text-center font-mono text-[13.5px] font-semibold uppercase tracking-wide text-text-primary transition-transform active:scale-[0.97]"
+            className="mt-4 block rounded-md bg-attack px-4 py-3 text-center font-mono text-[13.5px] font-semibold text-white transition-transform active:scale-[0.97]"
           >
             지금 신청하기
           </Link>
