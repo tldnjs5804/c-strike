@@ -17,6 +17,9 @@ export const MATCH_FLOW = {
   after: { title: "채점 & 순위 확정" },
 };
 
+// 취약점팩 공개 일정 — 축 위 점이 아니라 읽으면 바로 이해되는 라벨로 표시합니다.
+export const VULN_RELEASE_SCHEDULE = ["시작", "2시간 후", "4시간 후", "6시간 후", "8시간 후"];
+
 export const HERO_STATS = [
   { num: "24", label: "지난 대회 참가자(명)" },
   { num: "6", label: "참가 팀" },
