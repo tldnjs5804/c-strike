@@ -4,39 +4,33 @@
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Noto Sans KR", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "Noto Serif KR", "Songmyung", serif;
 
-  --color-bg-base: #0b0e14;
-  --color-bg-surface: #10141f;
-  --color-bg-surface-alt: #171d2b;
-  --color-bg-card: #141926;
-  --color-border: #242c3e;
-  --color-border-strong: #37415a;
+  --color-bg-base: #0a0a09;
+  --color-bg-surface: #121110;
+  --color-bg-surface-alt: #17160f;
+  --color-bg-card: #141310;
+  --color-border: #2b2925;
+  --color-border-strong: #47443c;
 
-  --color-text-primary: #f4f6fb;
-  --color-text-secondary: #9aa5bd;
-  --color-text-muted: #5f6a85;
+  --color-text-primary: #f3f1ea;
+  --color-text-secondary: #a9a499;
+  --color-text-muted: #6e6a60;
 
-  --color-attack: #ff4655;
-  --color-attack-dark: #b9202d;
-  --color-defend: #2de3c8;
-  --color-defend-dark: #159a87;
-  --color-amber: #ffb937;
+  --color-attack: #d84a45;
+  --color-attack-dark: #a3312e;
+  --color-defend: #4fa79c;
+  --color-defend-dark: #326a63;
+  --color-amber: #c79a52;
 
   --animate-blink: blink 1.6s infinite;
-  --animate-scan: scan 6s linear infinite;
-  --animate-cursor: blink 1s infinite;
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-page-in: page-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.25; }
-}
-
-@keyframes scan {
-  0% { top: 0%; }
-  100% { top: 100%; }
+  50% { opacity: 0.2; }
 }
 
 @keyframes fade-up {
@@ -66,24 +60,88 @@ body {
   font-family: var(--font-sans);
 }
 
-/* faint cyber grid backdrop */
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(45, 227, 200, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 227, 200, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
-}
-
 ::selection {
-  background: var(--color-defend);
-  color: var(--color-bg-base);
+  background: var(--color-attack);
+  color: var(--color-text-primary);
 }
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-base); }
-::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 5px; }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 0; }
+
+/* ---- dossier motifs ---- */
+
+/* hairline ruled paper texture — faint, not a grid */
+.bg-ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 43px,
+    rgba(243, 241, 234, 0.035) 43px,
+    rgba(243, 241, 234, 0.035) 44px
+  );
+}
+
+/* corner tick marks, like a targeting/registration frame */
+.corner-marks {
+  position: relative;
+}
+.corner-marks::before,
+.corner-marks::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--color-border-strong);
+  pointer-events: none;
+}
+.corner-marks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.corner-marks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* hard offset "stamped card" shadow, no blur — the opposite of a soft AI glow */
+.offset-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.offset-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0 0 var(--color-border-strong);
+  border-color: var(--color-border-strong);
+}
+.offset-card:active {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 0 var(--color-border-strong);
+}
+.offset-card-attack:hover {
+  box-shadow: 4px 4px 0 0 var(--color-attack);
+  border-color: var(--color-attack);
+}
+.offset-card-defend:hover {
+  box-shadow: 4px 4px 0 0 var(--color-defend);
+  border-color: var(--color-defend);
+}
+
+.offset-btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 3px 3px 0 0 var(--color-bg-base), 3px 3px 0 1px currentColor;
+}
+.offset-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 0 var(--color-bg-base), 5px 5px 0 1px currentColor;
+}
+.offset-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 0 var(--color-bg-base), 1px 1px 0 1px currentColor;
+}
 
 /* scroll-reveal utility, toggled via IntersectionObserver in useReveal() */
 .reveal {
