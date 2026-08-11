@@ -1,4 +1,4 @@
-import { MATCH_FLOW, VULN_RELEASE_HOURS } from "../data/content";
+import { MATCH_FLOW } from "../data/content";
 
 export default function MatchFlow() {
   return (
@@ -15,39 +15,29 @@ export default function MatchFlow() {
         <span className="ml-1 font-mono text-[11px] font-bold uppercase tracking-wide text-amber">대회 시간 내내 반복</span>
       </div>
 
-      {/* one continuous timeline: 팀 편성 -> (취약점 5회 공개) -> 채점·순위 */}
-      <div className="relative">
-        <div className="absolute inset-x-0 top-[15px] h-px bg-border-strong sm:top-[17px]" />
+      {/* one simple line: 팀 편성 -> 채점·순위, DEFEND/ATTACK 구간이 그 사이 전체임을 색으로만 표시 */}
+      <div className="relative flex items-center justify-between">
         <div
-          className="absolute inset-x-[9%] top-[14px] h-[3px] rounded-full sm:top-[16px]"
+          className="absolute left-9 right-9 top-1/2 h-[3px] -translate-y-1/2 rounded-full sm:left-[46px] sm:right-[46px]"
           style={{ background: "linear-gradient(90deg, var(--color-defend), var(--color-attack))" }}
         />
 
-        <div className="relative flex items-start justify-between">
-          <div className="flex w-[74px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[110px]">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[15px] sm:h-9 sm:w-9 sm:text-[17px]">
-              🖥️
-            </span>
-            <span className="text-[11.5px] font-bold leading-tight text-text-primary sm:text-[13px]">
-              {MATCH_FLOW.before.title}
-            </span>
-          </div>
+        <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[16px] sm:h-10 sm:w-10 sm:text-[18px]">
+            🖥️
+          </span>
+          <span className="text-[11.5px] font-bold leading-tight text-text-primary sm:text-[13px]">
+            {MATCH_FLOW.before.title}
+          </span>
+        </div>
 
-          {VULN_RELEASE_HOURS.map((h) => (
-            <div key={h} className="flex flex-col items-center gap-2.5 pt-[7px] sm:pt-2">
-              <span className="h-3 w-3 rounded-full border-2 border-amber bg-bg-card sm:h-3.5 sm:w-3.5" />
-              <span className="font-mono text-[11px] font-semibold text-text-secondary sm:text-[12px]">{h}h</span>
-            </div>
-          ))}
-
-          <div className="flex w-[74px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[110px]">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[15px] sm:h-9 sm:w-9 sm:text-[17px]">
-              🏆
-            </span>
-            <span className="text-[11.5px] font-bold leading-tight text-text-primary sm:text-[13px]">
-              {MATCH_FLOW.after.title}
-            </span>
-          </div>
+        <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[16px] sm:h-10 sm:w-10 sm:text-[18px]">
+            🏆
+          </span>
+          <span className="text-[11.5px] font-bold leading-tight text-text-primary sm:text-[13px]">
+            {MATCH_FLOW.after.title}
+          </span>
         </div>
       </div>
 
