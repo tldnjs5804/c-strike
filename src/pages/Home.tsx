@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   AMENITIES,
+  BOARD_POSTS,
   BONUS_STATS,
   EVENT,
   HERO_STATS,
@@ -14,9 +15,10 @@ import {
   TARGETS,
   TARGETS_NOTE,
 } from "../data/content";
-import { Card, SectionSub, SectionTitle, Eyebrow } from "../components/ui";
+import { Card, SectionSub, SectionTitle, Eyebrow, Tag } from "../components/ui";
 import CountUp from "../components/CountUp";
 import MatchFlow from "../components/MatchFlow";
+import InquiryForm from "../components/InquiryForm";
 
 export default function Home() {
   const { hash } = useLocation();
@@ -318,29 +320,39 @@ export default function Home() {
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <Eyebrow>SUPPORT · 문의하기</Eyebrow>
           <SectionTitle>문의하기</SectionTitle>
-          <SectionSub>운영 관련 공지, 장애, 이의제기는 Discord 채널과 문의 게시판을 통해 접수합니다.</SectionSub>
+          <SectionSub>운영 관련 공지, 장애, 이의제기는 Discord 채널과 아래 문의 게시판을 통해 접수합니다.</SectionSub>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <Link to="/board" className="reveal block">
-              <Card className="h-full">
-                <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg bg-defend/10 text-[16px] text-defend">
-                  ☰
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start">
+            <div>
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-[17px] font-bold text-text-primary">문의 게시판</h3>
+                <p className="font-mono text-[12px] text-text-muted">
+                  총 <b className="text-text-primary">{BOARD_POSTS.length}</b>건
+                </p>
+              </div>
+              <div className="reveal stagger-children overflow-hidden rounded-xl border border-border bg-bg-card">
+                <div className="hidden grid-cols-[100px_1fr_80px] gap-3 border-b border-border bg-bg-surface px-4 py-3 font-mono text-[10.5px] uppercase tracking-wide text-text-muted sm:grid">
+                  <span>상태</span>
+                  <span>제목</span>
+                  <span>작성일</span>
                 </div>
-                <h3 className="mb-2.5 text-[17px] font-bold text-text-primary">문의 게시판</h3>
-                <p className="text-[14px] text-text-secondary">문의글 리스트, 답변 상태 표시</p>
-                <span className="mt-3.5 inline-block font-mono text-[12.5px] font-semibold text-defend">게시판 열기 →</span>
-              </Card>
-            </Link>
-            <Link to="/write" className="reveal block">
-              <Card className="h-full">
-                <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg bg-attack/10 text-[16px] text-attack">
-                  ✎
-                </div>
-                <h3 className="mb-2.5 text-[17px] font-bold text-text-primary">문의 남기기</h3>
-                <p className="text-[14px] text-text-secondary">문의 작성 폼, 운영진 답변 열람</p>
-                <span className="mt-3.5 inline-block font-mono text-[12.5px] font-semibold text-defend">글쓰기 →</span>
-              </Card>
-            </Link>
+                {BOARD_POSTS.map((post) => (
+                  <div
+                    key={post.id}
+                    className="row-accent grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[13px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
+                  >
+                    <Tag variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Tag>
+                    <span className="font-medium text-text-primary">{post.title}</span>
+                    <span className="hidden font-mono text-[11.5px] text-text-muted sm:block">{post.date}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-[17px] font-bold text-text-primary">문의 남기기</h3>
+              <InquiryForm />
+            </div>
           </div>
         </div>
       </section>
