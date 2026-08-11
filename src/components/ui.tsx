@@ -55,7 +55,7 @@ export function Card({ children, className = "", onClick }: { children: ReactNod
   return (
     <div
       onClick={onClick}
-      className={`rounded-[10px] border border-border bg-bg-card p-7 transition-colors duration-200 hover:border-border-strong ${onClick ? "cursor-pointer" : ""} ${className}`}
+      className={`rounded-[10px] border border-border bg-bg-card p-7 transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[0_12px_32px_-16px_rgba(0,0,0,0.5)] ${onClick ? "cursor-pointer active:translate-y-0" : ""} ${className}`}
     >
       {children}
     </div>

@@ -15,7 +15,7 @@ export default function Board() {
             </p>
             <Link
               to="/write"
-              className="rounded-md bg-attack px-4 py-2.5 font-mono text-[13px] font-semibold text-white transition-all hover:bg-attack-dark"
+              className="rounded-md bg-attack px-4 py-2.5 font-mono text-[13px] font-semibold text-white transition-all hover:bg-attack-dark active:scale-[0.96]"
             >
               문의 남기기
             </Link>
@@ -31,7 +31,7 @@ export default function Board() {
             {BOARD_POSTS.map((post) => (
               <div
                 key={post.id}
-                className="grid grid-cols-[64px_1fr] items-center gap-3.5 border-b border-border px-5 py-4 text-[13.5px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_90px_100px]"
+                className="grid grid-cols-[64px_1fr] items-center gap-3.5 border-b border-border px-5 py-4 text-[13.5px] transition-all last:border-none hover:translate-x-0.5 hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_90px_100px]"
               >
                 <span
                   className={`w-fit rounded-full px-2.5 py-1 font-mono text-[11px] font-bold ${

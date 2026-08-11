@@ -24,8 +24,8 @@ export default function Apply() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[640px] px-6 sm:px-8">
           {submitted ? (
-            <div className="flex flex-col items-center gap-3 rounded-[14px] border border-border bg-bg-card px-5 py-16 text-center">
-              <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full border border-defend/35 bg-defend/10 text-[26px] text-defend">
+            <div className="animate-page-in flex flex-col items-center gap-3 rounded-[14px] border border-border bg-bg-card px-5 py-16 text-center">
+              <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full border border-defend/35 bg-defend/10 text-[26px] text-defend [animation:pop-in_0.4s_cubic-bezier(0.16,1,0.3,1)_both]">
                 ✓
               </div>
               <h3 className="text-[20px] font-bold text-text-primary">신청이 접수되었습니다</h3>
@@ -34,7 +34,7 @@ export default function Apply() {
               </p>
               <Link
                 to="/board"
-                className="rounded-lg border border-border-strong px-[18px] py-2.5 font-mono text-[13px] font-semibold text-text-primary transition-colors hover:border-defend hover:text-defend"
+                className="rounded-lg border border-border-strong px-[18px] py-2.5 font-mono text-[13px] font-semibold text-text-primary transition-all hover:border-defend hover:text-defend active:scale-[0.97]"
               >
                 문의 게시판 가기
               </Link>
@@ -110,7 +110,7 @@ export default function Apply() {
 
                 <button
                   type="submit"
-                  className="mt-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
+                  className="mt-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)] active:scale-[0.98]"
                 >
                   신청서 제출하기
                 </button>
