@@ -1,4 +1,4 @@
-import { MATCH_FLOW, VULN_RELEASE_SCHEDULE } from "../data/content";
+import { MATCH_FLOW, VULN_RELEASE_HOURS, VULN_RELEASE_SCHEDULE } from "../data/content";
 
 export default function MatchFlow() {
   return (
@@ -31,6 +31,16 @@ export default function MatchFlow() {
           </span>
         </div>
 
+        {/* 취약점팩 공개 시점 — 타임라인 위에 작은 h 눈금으로 표시 */}
+        <div className="relative z-10 flex flex-1 items-center justify-around px-1.5 sm:px-3">
+          {VULN_RELEASE_HOURS.map((h) => (
+            <div key={h} className="flex flex-col items-center gap-1.5 pt-[3px]">
+              <span className="h-2.5 w-2.5 rounded-full border-2 border-amber bg-bg-card" />
+              <span className="font-mono text-[10px] font-bold text-amber sm:text-[10.5px]">{h}h</span>
+            </div>
+          ))}
+        </div>
+
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[16px] sm:h-10 sm:w-10 sm:text-[18px]">
             🏆
@@ -40,6 +50,9 @@ export default function MatchFlow() {
           </span>
         </div>
       </div>
+      <p className="mt-2 text-center font-mono text-[10.5px] uppercase tracking-wide text-text-muted">
+        취약점팩 공개 시점
+      </p>
 
       <p className="mx-auto mt-8 max-w-[480px] text-center text-[13.5px] leading-relaxed text-text-secondary">
         대회가 시작되면 모든 팀이 <b className="text-text-primary">내 서버는 방어, 상대 서버는 공격</b>을 동시에 계속
