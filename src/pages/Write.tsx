@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SubpageHero from "../components/SubpageHero";
 
 const inputCls =
-  "border border-border bg-bg-card px-3.5 py-3 text-[14px] text-text-primary placeholder:text-text-muted transition-colors focus:border-defend focus:outline-none";
+  "rounded-lg border border-border bg-bg-card px-3.5 py-3 text-[14px] text-text-primary placeholder:text-text-muted transition-colors focus:border-defend focus:outline-none focus:ring-[3px] focus:ring-defend/10";
 
 export default function Write() {
   const [submitted, setSubmitted] = useState(false);
@@ -21,17 +21,17 @@ export default function Write() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[640px] px-6 sm:px-8">
           {submitted ? (
-            <div className="animate-page-in corner-marks flex flex-col items-center gap-3 border border-border bg-bg-card px-5 py-16 text-center">
-              <div className="mb-2 flex h-14 w-14 items-center justify-center border border-defend text-[26px] text-defend [animation:pop-in_0.4s_cubic-bezier(0.16,1,0.3,1)_both]">
+            <div className="animate-page-in flex flex-col items-center gap-3 rounded-[14px] border border-border bg-bg-card px-5 py-16 text-center">
+              <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full border border-defend/35 bg-defend/10 text-[26px] text-defend [animation:pop-in_0.4s_cubic-bezier(0.16,1,0.3,1)_both]">
                 ✓
               </div>
-              <h3 className="font-serif text-[22px] font-bold text-text-primary">문의가 등록되었습니다</h3>
+              <h3 className="text-[20px] font-bold text-text-primary">문의가 등록되었습니다</h3>
               <p className="mb-3 max-w-[380px] text-[14px] text-text-secondary">
                 운영진 확인 후 답변이 등록되며, 문의 게시판에서 답변 상태를 확인하실 수 있습니다.
               </p>
               <Link
                 to="/board"
-                className="offset-btn border border-border-strong px-[18px] py-2.5 font-mono text-[13px] font-semibold uppercase tracking-wide text-text-primary"
+                className="rounded-lg border border-border-strong px-[18px] py-2.5 font-mono text-[13px] font-semibold text-text-primary transition-all hover:border-defend hover:text-defend active:scale-[0.97]"
               >
                 문의 게시판 가기
               </Link>
@@ -39,28 +39,28 @@ export default function Write() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-[18px]">
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[12px] font-semibold uppercase tracking-wide text-text-secondary" htmlFor="w-title">
+                <label className="text-[13px] font-semibold text-text-secondary" htmlFor="w-title">
                   제목 <span className="text-attack">*</span>
                 </label>
                 <input id="w-title" required placeholder="문의 제목을 입력해주세요" className={inputCls} />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[12px] font-semibold uppercase tracking-wide text-text-secondary" htmlFor="w-name">
+                <label className="text-[13px] font-semibold text-text-secondary" htmlFor="w-name">
                   작성자 <span className="text-attack">*</span>
                 </label>
                 <input id="w-name" required placeholder="이름 또는 닉네임" className={inputCls} />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[12px] font-semibold uppercase tracking-wide text-text-secondary" htmlFor="w-contact">
+                <label className="text-[13px] font-semibold text-text-secondary" htmlFor="w-contact">
                   답변받을 연락처(이메일) <span className="text-attack">*</span>
                 </label>
                 <input id="w-contact" type="email" required placeholder="example@cju.ac.kr" className={inputCls} />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-mono text-[12px] font-semibold uppercase tracking-wide text-text-secondary" htmlFor="w-body">
+                <label className="text-[13px] font-semibold text-text-secondary" htmlFor="w-body">
                   내용 <span className="text-attack">*</span>
                 </label>
                 <textarea
@@ -79,7 +79,7 @@ export default function Write() {
 
               <button
                 type="submit"
-                className="offset-btn mt-2 border border-attack bg-bg-base px-7 py-[15px] font-mono text-[14.5px] font-semibold uppercase tracking-wide text-attack"
+                className="mt-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)] active:scale-[0.98]"
               >
                 문의 등록하기
               </button>

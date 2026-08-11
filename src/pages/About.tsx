@@ -1,5 +1,5 @@
 import SubpageHero from "../components/SubpageHero";
-import { SectionTitle, Tag } from "../components/ui";
+import { SectionTitle } from "../components/ui";
 import { PURPOSES, RULES, TARGETS, TARGETS_NOTE, BONUS_STATS } from "../data/content";
 
 export default function About() {
@@ -14,28 +14,28 @@ export default function About() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <SectionTitle>목적</SectionTitle>
-          <ol className="reveal stagger-children mb-20 flex flex-col divide-y divide-border border-y border-border">
-            {PURPOSES.map((p, i) => (
-              <li key={p} className="flex items-start gap-6 py-5">
-                <span className="mt-0.5 shrink-0 font-mono text-[13px] font-bold text-attack">
-                  {String(i + 1).padStart(2, "0")}
+          <div className="reveal stagger-children mb-20 flex flex-col gap-3.5">
+            {PURPOSES.map((p) => (
+              <div key={p} className="flex items-start gap-3.5 rounded-[10px] border border-border bg-bg-card px-5 py-[18px]">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-defend/10 text-[12px] font-bold text-defend">
+                  ✓
                 </span>
-                <p className="text-[14.5px] leading-[1.75] text-text-secondary">{p}</p>
-              </li>
+                <p className="text-[14.5px] leading-[1.7] text-text-secondary">{p}</p>
+              </div>
             ))}
-          </ol>
+          </div>
 
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <SectionTitle>운영 방식</SectionTitle>
-              <table className="w-full border-collapse border-t border-border">
-                <tbody className="reveal stagger-children-fade">
+              <table className="reveal w-full border-collapse">
+                <tbody>
                   {RULES.map((r) => (
-                    <tr key={r.term} className="border-b border-border">
-                      <td className="w-[110px] whitespace-nowrap py-4 pr-4 align-top font-mono text-[11.5px] font-semibold uppercase text-text-muted">
+                    <tr key={r.term} className="border-b border-border last:border-none">
+                      <td className="w-[110px] whitespace-nowrap py-3.5 pr-4 align-top font-mono text-[12px] font-semibold text-text-muted">
                         {r.term}
                       </td>
-                      <td className="py-4 align-top text-[13.5px] leading-relaxed text-text-secondary">{r.value}</td>
+                      <td className="py-3.5 align-top text-[13.5px] leading-relaxed text-text-secondary">{r.value}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -44,10 +44,10 @@ export default function About() {
 
             <div>
               <SectionTitle>공략해야 할 취약점</SectionTitle>
-              <div className="reveal stagger-children mb-5 flex flex-col divide-y divide-border border-y border-border">
+              <div className="reveal stagger-children mb-[18px] flex flex-col gap-3">
                 {TARGETS.map((t) => (
-                  <div key={t.tag} className="flex items-baseline gap-4 py-4">
-                    <Tag variant="attack">{t.tag}</Tag>
+                  <div key={t.tag} className="flex items-baseline gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
+                    <span className="min-w-16 shrink-0 font-mono text-[11px] font-bold text-attack">{t.tag}</span>
                     <p className="text-[13.5px] leading-relaxed text-text-secondary">{t.desc}</p>
                   </div>
                 ))}
@@ -56,24 +56,27 @@ export default function About() {
             </div>
           </div>
 
-          <div className="reveal mt-20 border border-border-strong border-l-4 border-l-amber p-8 sm:p-10">
+          <div
+            className="reveal mt-20 rounded-[14px] border border-amber/25 p-8 sm:p-10"
+            style={{ background: "linear-gradient(135deg, rgba(255,185,55,0.06), rgba(23,29,43,0.4))" }}
+          >
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
               <div>
-                <Tag variant="amber">BONUS ZONE</Tag>
-                <h3 className="my-3 font-serif text-[24px] font-bold text-text-primary">보너스 구간</h3>
+                <p className="mb-2 font-mono text-[11.5px] font-semibold uppercase tracking-wide text-amber">BONUS ZONE</p>
+                <h3 className="mb-3 text-[24px] font-bold text-text-primary">보너스 구간</h3>
                 <p className="text-[14px] leading-relaxed text-text-secondary">
                   A/D 서비스와 별개로 모든 팀이 접근 가능한 공용 Jeopardy 구역. 공방 소강상태 시 몰입도를 유지하고
                   팀 전략 다양성을 부여합니다.
                 </p>
               </div>
-              <dl className="reveal stagger-children flex flex-col divide-y divide-border">
+              <div className="reveal stagger-children flex flex-col gap-3.5">
                 {BONUS_STATS.map((b) => (
-                  <div key={b.label} className="flex items-baseline justify-between gap-4 py-3.5 first:pt-0 last:pb-0">
-                    <dt className="text-[12.5px] text-text-muted">{b.label}</dt>
-                    <dd className="whitespace-nowrap font-mono text-[16px] font-bold text-amber">{b.value}</dd>
+                  <div key={b.label} className="flex items-baseline gap-3">
+                    <span className="min-w-[110px] font-mono text-[18px] font-bold text-amber">{b.value}</span>
+                    <span className="text-[12.5px] text-text-muted">{b.label}</span>
                   </div>
                 ))}
-              </dl>
+              </div>
             </div>
           </div>
         </div>

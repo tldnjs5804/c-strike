@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SubpageHero from "../components/SubpageHero";
-import { IndexBadge } from "../components/ui";
+import { Card } from "../components/ui";
 
 export default function Contact() {
   return (
@@ -13,26 +13,26 @@ export default function Contact() {
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
-          <div className="grid grid-cols-1 divide-y divide-border border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-            <Link to="/board" className="offset-card offset-card-defend reveal flex flex-col justify-between gap-10 border-border p-8 sm:p-10">
-              <div className="flex items-start justify-between">
-                <IndexBadge n="A" variant="defend" />
-                <span className="font-mono text-[20px] text-defend">→</span>
-              </div>
-              <div>
-                <h3 className="mb-2.5 font-serif text-[22px] font-bold text-text-primary">문의 게시판</h3>
-                <p className="text-[13.5px] leading-relaxed text-text-secondary">문의글 리스트, 답변 상태 표시</p>
-              </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <Link to="/board" className="reveal block">
+              <Card className="h-full">
+                <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg bg-defend/10 text-[16px] text-defend">
+                  ☰
+                </div>
+                <h3 className="mb-2.5 text-[17px] font-bold text-text-primary">문의 게시판</h3>
+                <p className="text-[14px] text-text-secondary">문의글 리스트, 답변 상태 표시</p>
+                <span className="mt-3.5 inline-block font-mono text-[12.5px] font-semibold text-defend">게시판 열기 →</span>
+              </Card>
             </Link>
-            <Link to="/write" className="offset-card offset-card-attack reveal flex flex-col justify-between gap-10 border-border p-8 sm:p-10">
-              <div className="flex items-start justify-between">
-                <IndexBadge n="B" variant="attack" />
-                <span className="font-mono text-[20px] text-attack">→</span>
-              </div>
-              <div>
-                <h3 className="mb-2.5 font-serif text-[22px] font-bold text-text-primary">문의 남기기</h3>
-                <p className="text-[13.5px] leading-relaxed text-text-secondary">문의 작성 폼, 운영진 답변 열람</p>
-              </div>
+            <Link to="/write" className="reveal block">
+              <Card className="h-full">
+                <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg bg-attack/10 text-[16px] text-attack">
+                  ✎
+                </div>
+                <h3 className="mb-2.5 text-[17px] font-bold text-text-primary">문의 남기기</h3>
+                <p className="text-[14px] text-text-secondary">문의 작성 폼, 운영진 답변 열람</p>
+                <span className="mt-3.5 inline-block font-mono text-[12.5px] font-semibold text-defend">글쓰기 →</span>
+              </Card>
             </Link>
           </div>
         </div>
