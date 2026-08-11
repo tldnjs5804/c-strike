@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { EVENT } from "../data/content";
 
 const NAV_ITEMS = [
-  { label: "대회 소개", href: "/about" },
-  { label: "운영 성과", href: "/results" },
-  { label: "참가 안내", href: "/join" },
-  { label: "문의하기", href: "/contact" },
+  { label: "대회 소개", href: "/#about" },
+  { label: "운영 성과", href: "/#results" },
+  { label: "참가 안내", href: "/#join" },
+  { label: "문의하기", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setOpen(false);
   }, [location]);
+
+  const handleAnchor = (href: string) => (e: React.MouseEvent) => {
+    const [path, hash] = href.split("#");
+    const targetPath = path || "/";
+    if (location.pathname === targetPath) {
+      e.preventDefault();
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      e.preventDefault();
+      navigate(href);
+    }
+  };
 
   return (
     <nav className="fixed inset-x-0 top-0 z-[100] border-b border-border bg-bg-base/95">
@@ -32,23 +45,16 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
-          {NAV_ITEMS.map((item) => {
-            const active = location.pathname === item.href;
-            return (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`relative rounded-md px-4 py-2.5 text-[14.5px] font-medium transition-colors ${
-                  active ? "bg-bg-surface-alt text-text-primary" : "text-text-secondary hover:bg-bg-surface-alt hover:text-text-primary"
-                }`}
-              >
-                {item.label}
-                {active && (
-                  <span className="absolute inset-x-4 bottom-1 h-[2px] bg-defend shadow-[0_0_6px_rgba(45,227,200,0.35)]" />
-                )}
-              </Link>
-            );
-          })}
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.label}
+              to={item.href}
+              onClick={handleAnchor(item.href)}
+              className="rounded-md px-4 py-2.5 text-[14.5px] font-medium text-text-secondary transition-colors hover:bg-bg-surface-alt hover:text-text-primary"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
         <div className="flex items-center gap-2">
@@ -76,6 +82,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               to={item.href}
+              onClick={handleAnchor(item.href)}
               className="block border-b border-border py-3.5 text-[15px] font-medium text-text-primary transition-colors hover:text-defend"
             >
               {item.label}

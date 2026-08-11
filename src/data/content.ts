@@ -7,34 +7,41 @@ export const EVENT = {
   desc: "청주대학교 사이버공격방어대회 — 실전형 Attack-Defense로 검증하는 진짜 보안 실력",
 };
 
-export const CHAPTERS = [
+// 참가 신청 구글 폼 URL. 실제 폼이 만들어지면 이 값만 교체하면 사이트 전체에 반영됩니다.
+export const GOOGLE_FORM_URL = "";
+
+export const PROCESS_STEPS = [
   {
     n: "01",
-    title: "대회 소개",
-    teaser: "단순 문제풀이를 넘어선 실전형 Attack-Defense. 목적, 운영 방식, 공략 대상, 보너스 구간.",
-    href: "/about",
-    variant: "attack" as const,
+    icon: "🖥️",
+    title: "팀 편성 & 서버 배정",
+    desc: "팀별 독립 컨테이너 서버 배정, OpenVPN으로 대회 전용망 접속",
   },
   {
     n: "02",
-    title: "운영 성과",
-    teaser: "2026.6.22 CJU C-Strike 대회 개요, 최종 순위표, 참가자 만족도 조사 결과.",
-    href: "/results",
+    icon: "🛡️",
+    title: "방어 (DEFEND)",
+    desc: "내 서버의 취약점을 먼저 찾아 패치하고 서비스는 계속 살려둬야 함",
     variant: "defend" as const,
   },
   {
     n: "03",
-    title: "참가 안내",
-    teaser: "9월·11월 대회 참가 전 확인해야 할 것들과 신청 절차.",
-    href: "/join",
+    icon: "⚔️",
+    title: "공격 (ATTACK)",
+    desc: "같은 취약점으로 상대 팀 서버를 공략해 플래그 탈취",
     variant: "attack" as const,
   },
   {
     n: "04",
-    title: "문의하기",
-    teaser: "운영 관련 공지·장애·이의제기 접수 채널과 문의 게시판.",
-    href: "/contact",
-    variant: "defend" as const,
+    icon: "🔓",
+    title: "취약점 단계적 공개",
+    desc: "0 / 2 / 4 / 6 / 8시간 시점마다 새 취약점팩 순차 공개",
+  },
+  {
+    n: "05",
+    icon: "🏆",
+    title: "실시간 채점 & 순위",
+    desc: "플래그 자동 검증, 공격 성공 시 즉시 점수 반영",
   },
 ];
 
