@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Noto Sans KR", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-bg-base: #0b0e14;
+  --color-bg-surface: #10141f;
+  --color-bg-surface-alt: #171d2b;
+  --color-bg-card: #141926;
+  --color-border: #242c3e;
+  --color-border-strong: #37415a;
+
+  --color-text-primary: #f4f6fb;
+  --color-text-secondary: #9aa5bd;
+  --color-text-muted: #5f6a85;
+
+  --color-attack: #ff4655;
+  --color-attack-dark: #b9202d;
+  --color-defend: #2de3c8;
+  --color-defend-dark: #159a87;
+  --color-amber: #ffb937;
+
+  --animate-blink: blink 1.6s infinite;
+  --animate-scan: scan 6s linear infinite;
+  --animate-cursor: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes scan {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* faint cyber grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(45, 227, 200, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 227, 200, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+}
+
+::selection {
+  background: var(--color-defend);
+  color: var(--color-bg-base);
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg-base); }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 5px; }
+
+/* scroll-reveal utility, toggled via IntersectionObserver in useReveal() */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
