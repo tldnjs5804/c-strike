@@ -14,7 +14,7 @@ export default function About() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <SectionTitle>목적</SectionTitle>
-          <ol className="reveal mb-20 flex flex-col divide-y divide-border border-y border-border">
+          <ol className="reveal stagger-children mb-20 flex flex-col divide-y divide-border border-y border-border">
             {PURPOSES.map((p, i) => (
               <li key={p} className="flex items-start gap-6 py-5">
                 <span className="mt-0.5 shrink-0 font-mono text-[13px] font-bold text-attack">
@@ -28,8 +28,8 @@ export default function About() {
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <SectionTitle>운영 방식</SectionTitle>
-              <table className="reveal w-full border-collapse border-t border-border">
-                <tbody>
+              <table className="w-full border-collapse border-t border-border">
+                <tbody className="reveal stagger-children-fade">
                   {RULES.map((r) => (
                     <tr key={r.term} className="border-b border-border">
                       <td className="w-[110px] whitespace-nowrap py-4 pr-4 align-top font-mono text-[11.5px] font-semibold uppercase text-text-muted">
@@ -44,7 +44,7 @@ export default function About() {
 
             <div>
               <SectionTitle>공략해야 할 취약점</SectionTitle>
-              <div className="reveal mb-5 flex flex-col divide-y divide-border border-y border-border">
+              <div className="reveal stagger-children mb-5 flex flex-col divide-y divide-border border-y border-border">
                 {TARGETS.map((t) => (
                   <div key={t.tag} className="flex items-baseline gap-4 py-4">
                     <Tag variant="attack">{t.tag}</Tag>
@@ -66,7 +66,7 @@ export default function About() {
                   팀 전략 다양성을 부여합니다.
                 </p>
               </div>
-              <dl className="flex flex-col divide-y divide-border">
+              <dl className="reveal stagger-children flex flex-col divide-y divide-border">
                 {BONUS_STATS.map((b) => (
                   <div key={b.label} className="flex items-baseline justify-between gap-4 py-3.5 first:pt-0 last:pb-0">
                     <dt className="text-[12.5px] text-text-muted">{b.label}</dt>

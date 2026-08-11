@@ -1,5 +1,6 @@
 import SubpageHero from "../components/SubpageHero";
 import { SectionTitle, Tag } from "../components/ui";
+import CountUp from "../components/CountUp";
 import { AMENITIES, LEADERBOARD, RESULTS_OVERVIEW, SATISFACTION } from "../data/content";
 
 export default function Results() {
@@ -13,7 +14,7 @@ export default function Results() {
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
-          <div className="reveal mb-16 grid grid-cols-1 divide-y divide-border border border-border md:grid-cols-4 md:divide-x md:divide-y-0">
+          <div className="reveal stagger-children mb-16 grid grid-cols-1 divide-y divide-border border border-border md:grid-cols-4 md:divide-x md:divide-y-0">
             {RESULTS_OVERVIEW.map((item) => (
               <div key={item.label} className="flex flex-col gap-2 p-6">
                 <span className="font-mono text-[11px] font-bold uppercase tracking-wide text-attack">{item.label}</span>
@@ -23,7 +24,7 @@ export default function Results() {
           </div>
 
           <SectionTitle>최종 순위</SectionTitle>
-          <div className="reveal mb-16 border border-border">
+          <div className="reveal stagger-children mb-16 border border-border">
             <div className="grid grid-cols-[40px_1fr_90px] gap-4 border-b border-border bg-bg-surface px-5 py-3 font-mono text-[11px] uppercase tracking-wide text-text-muted sm:grid-cols-[56px_1fr_110px_140px]">
               <span>순위</span>
               <span>팀</span>
@@ -33,7 +34,7 @@ export default function Results() {
             {LEADERBOARD.map((row) => (
               <div
                 key={row.team}
-                className={`grid grid-cols-[40px_1fr_90px] items-center gap-4 border-b border-border px-5 py-4 text-[14px] last:border-none sm:grid-cols-[56px_1fr_110px_140px] ${
+                className={`row-accent grid grid-cols-[40px_1fr_90px] items-center gap-4 border-b border-border py-4 pl-4 pr-5 text-[14px] last:border-none sm:grid-cols-[56px_1fr_110px_140px] ${
                   row.rank === 1 ? "border-l-2 border-l-amber bg-amber/[0.04]" : ""
                 }`}
               >
@@ -42,7 +43,7 @@ export default function Results() {
                 </span>
                 <span className="font-semibold text-text-primary">{row.team}</span>
                 <span className={`font-mono ${row.rank === 1 ? "font-bold text-amber" : "text-text-secondary"}`}>
-                  {row.score.toLocaleString()}
+                  <CountUp value={row.score} format={(n) => n.toLocaleString()} />
                 </span>
                 <span className="hidden h-[3px] overflow-hidden bg-bg-surface-alt sm:block">
                   <i
@@ -61,7 +62,7 @@ export default function Results() {
             <div>
               <SectionTitle>만족도 조사 결과</SectionTitle>
               <p className="reveal mb-5 text-[13.5px] text-text-secondary">24명 중 17명 응답 · 5점 척도 4점 이상 = 긍정</p>
-              <div className="reveal flex flex-col gap-3">
+              <div className="reveal stagger-children flex flex-col gap-3">
                 {SATISFACTION.map((s) => (
                   <div key={s.label} className="grid grid-cols-[110px_1fr_36px] items-center gap-3 text-[12.5px] sm:grid-cols-[130px_1fr_36px]">
                     <span className="text-text-secondary">{s.label}</span>
@@ -80,7 +81,7 @@ export default function Results() {
             <div>
               <SectionTitle>참가자 편의</SectionTitle>
               <Tag variant="defend">AMENITIES</Tag>
-              <ul className="reveal mt-5 flex flex-col divide-y divide-border border-y border-border">
+              <ul className="reveal stagger-children mt-5 flex flex-col divide-y divide-border border-y border-border">
                 {AMENITIES.map((a) => (
                   <li key={a} className="py-3.5 text-[14px] leading-relaxed text-text-secondary">
                     {a}

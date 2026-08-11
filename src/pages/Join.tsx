@@ -13,7 +13,7 @@ export default function Join() {
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[820px] px-6 sm:px-8">
-          <div className="reveal grid grid-cols-1 divide-y divide-border border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+          <div className="reveal stagger-children grid grid-cols-1 divide-y divide-border border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0">
             {JOIN_ITEMS.map((item) => (
               <div key={item.label} className="flex flex-col gap-2.5 p-6">
                 <span className="font-mono text-[11px] uppercase tracking-wide text-text-muted">{item.label}</span>
