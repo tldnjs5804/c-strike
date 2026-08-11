@@ -16,7 +16,7 @@ import {
 } from "../data/content";
 import { Card, SectionSub, SectionTitle, Eyebrow } from "../components/ui";
 import CountUp from "../components/CountUp";
-import ProcessTimeline from "../components/ProcessTimeline";
+import MatchFlow from "../components/MatchFlow";
 
 export default function Home() {
   const { hash } = useLocation();
@@ -114,38 +114,37 @@ export default function Home() {
             방어와 공격을 동시에, 반복적으로 수행하며 취약점이 단계적으로 공개됩니다.
           </p>
           <div className="mb-16">
-            <ProcessTimeline />
+            <MatchFlow />
           </div>
 
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-            <div>
-              <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">세부 운영 정보</h3>
-              <table className="reveal w-full border-collapse">
-                <tbody>
-                  {RULES.map((r) => (
-                    <tr key={r.term} className="border-b border-border last:border-none">
-                      <td className="w-[110px] whitespace-nowrap py-3.5 pr-4 align-top font-mono text-[12px] font-semibold text-text-muted">
-                        {r.term}
-                      </td>
-                      <td className="py-3.5 align-top text-[13.5px] leading-relaxed text-text-secondary">{r.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div>
-              <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">공략해야 할 취약점</h3>
-              <div className="reveal stagger-children mb-[18px] flex flex-col gap-3">
-                {TARGETS.map((t) => (
-                  <div key={t.tag} className="flex items-baseline gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
-                    <span className="min-w-16 shrink-0 font-mono text-[11px] font-bold text-attack">{t.tag}</span>
-                    <p className="text-[13.5px] leading-relaxed text-text-secondary">{t.desc}</p>
-                  </div>
-                ))}
+          <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">세부 운영 정보</h3>
+          <div className="reveal stagger-children mb-16 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {RULES.map((r) => (
+              <div key={r.term} className="flex items-start gap-3.5 rounded-[10px] border border-border bg-bg-card p-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg-surface-alt text-[18px]">
+                  {r.icon}
+                </span>
+                <div>
+                  <p className="mb-1 font-mono text-[11px] font-bold uppercase tracking-wide text-text-muted">{r.term}</p>
+                  <p className="text-[14px] leading-relaxed text-text-secondary">{r.value}</p>
+                </div>
               </div>
-              <p className="text-[12.5px] leading-relaxed text-text-muted">{TARGETS_NOTE}</p>
+            ))}
+          </div>
+
+          <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">공략해야 할 취약점</h3>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
+            <div className="reveal stagger-children flex flex-col gap-3">
+              {TARGETS.map((t) => (
+                <div key={t.tag} className="flex items-baseline gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
+                  <span className="min-w-16 shrink-0 font-mono text-[11px] font-bold text-attack">{t.tag}</span>
+                  <p className="text-[13.5px] leading-relaxed text-text-secondary">{t.desc}</p>
+                </div>
+              ))}
             </div>
+            <p className="reveal rounded-lg border border-border bg-bg-surface px-5 py-4 text-[13px] leading-relaxed text-text-secondary">
+              {TARGETS_NOTE}
+            </p>
           </div>
 
           <div

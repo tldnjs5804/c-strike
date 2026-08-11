@@ -10,40 +10,20 @@ export const EVENT = {
 // 참가 신청 구글 폼 URL. 실제 폼이 만들어지면 이 값만 교체하면 사이트 전체에 반영됩니다.
 export const GOOGLE_FORM_URL = "";
 
-export const PROCESS_STEPS = [
-  {
-    n: "01",
-    icon: "🖥️",
-    title: "팀 편성 & 서버 배정",
-    desc: "팀별 독립 컨테이너 서버 배정, OpenVPN으로 대회 전용망 접속",
+// 대회 흐름 — 1) 한 번 일어나는 준비, 2) 대회 시간 내내 반복되는 공방전, 3) 한 번 일어나는 마감.
+// 가운데 단계가 실제 "Attack-Defense"의 핵심이라 시각적으로도 다른 두 단계보다 크게 강조합니다.
+export const MATCH_FLOW = {
+  before: { icon: "🖥️", title: "팀 편성 & 서버 배포", desc: "팀별 독립 컨테이너 서버 배정, OpenVPN으로 대회 전용망 접속" },
+  core: {
+    icon: "⚔️🛡️",
+    title: "공방전 — Attack ⇄ Defend",
+    desc: "내 서버는 방어하면서 동시에 상대 서버를 공격. 대회 시간 내내 이 두 가지를 계속 반복합니다.",
   },
-  {
-    n: "02",
-    icon: "🛡️",
-    title: "방어 (DEFEND)",
-    desc: "내 서버의 취약점을 먼저 찾아 패치하고 서비스는 계속 살려둬야 함",
-    variant: "defend" as const,
-  },
-  {
-    n: "03",
-    icon: "⚔️",
-    title: "공격 (ATTACK)",
-    desc: "같은 취약점으로 상대 팀 서버를 공략해 플래그 탈취",
-    variant: "attack" as const,
-  },
-  {
-    n: "04",
-    icon: "🔓",
-    title: "취약점 단계적 공개",
-    desc: "0 / 2 / 4 / 6 / 8시간 시점마다 새 취약점팩 순차 공개",
-  },
-  {
-    n: "05",
-    icon: "🏆",
-    title: "실시간 채점 & 순위",
-    desc: "플래그 자동 검증, 공격 성공 시 즉시 점수 반영",
-  },
-];
+  after: { icon: "🏆", title: "채점 & 순위 확정", desc: "플래그 자동 검증, 공격 성공 시 점수 즉시 반영" },
+};
+
+// 취약점팩 공개 시점 (대회 시작 후 경과 시간, 단위: 시간)
+export const VULN_RELEASE_HOURS = [0, 2, 4, 6, 8];
 
 export const HERO_STATS = [
   { num: "24", label: "지난 대회 참가자(명)" },
@@ -58,11 +38,11 @@ export const PURPOSES = [
 ];
 
 export const RULES = [
-  { term: "방식", value: "Attack & Defense" },
-  { term: "네트워크", value: "OpenVPN 기반 대회 전용 내부망, 참가자망·운영망 독립 운영" },
-  { term: "팀 환경", value: "컨테이너 기반 독립 운영, 원클릭 리셋 지원" },
-  { term: "채점", value: "플래그 자동 생성·주입, 공격/피공격/시각/취약점 정보로 추적·부정행위 검증" },
-  { term: "소통 채널", value: "Discord 채널·스레드로 공지·장애·이의제기 접수, 티켓 시스템 연동" },
+  { icon: "⚔️", term: "방식", value: "Attack & Defense" },
+  { icon: "🌐", term: "네트워크", value: "OpenVPN 기반 대회 전용 내부망, 참가자망·운영망 독립 운영" },
+  { icon: "📦", term: "팀 환경", value: "컨테이너 기반 독립 운영, 원클릭 리셋 지원" },
+  { icon: "🚩", term: "채점", value: "플래그 자동 생성·주입, 공격/피공격/시각/취약점 정보로 추적·부정행위 검증" },
+  { icon: "💬", term: "소통 채널", value: "Discord 채널·스레드로 공지·장애·이의제기 접수, 티켓 시스템 연동" },
 ];
 
 export const TARGETS = [
