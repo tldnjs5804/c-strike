@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { CHAPTERS, EVENT, HERO_STATS } from "../data/content";
 import { IndexBadge } from "../components/ui";
+import DecodeText from "../components/DecodeText";
+import CountUp from "../components/CountUp";
 
 export default function Home() {
   return (
@@ -13,7 +15,7 @@ export default function Home() {
             </p>
 
             <h1 className="mb-6 font-serif text-[clamp(40px,6.4vw,84px)] font-black leading-[0.98] tracking-tight text-text-primary">
-              {EVENT.name}
+              <DecodeText text={EVENT.name} />
               <span className="ml-3 text-attack">{EVENT.year}</span>
             </h1>
 
@@ -49,7 +51,9 @@ export default function Home() {
               {HERO_STATS.map((s) => (
                 <div key={s.label} className="flex items-baseline justify-between py-3.5 first:pt-0 last:pb-0">
                   <dt className="text-[13px] text-text-secondary">{s.label}</dt>
-                  <dd className="font-serif text-[26px] font-bold text-text-primary">{s.num}</dd>
+                  <dd className="font-serif text-[26px] font-bold text-text-primary">
+                    <CountUp value={parseInt(s.num, 10)} />
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -67,7 +71,7 @@ export default function Home() {
             목차 · Table of Contents
           </p>
 
-          <div className="grid grid-cols-1 divide-y divide-border border border-border sm:grid-cols-2 sm:divide-y-0">
+          <div className="reveal stagger-children grid grid-cols-1 divide-y divide-border border border-border sm:grid-cols-2 sm:divide-y-0">
             {CHAPTERS.map((c) => (
               <Link
                 key={c.href}

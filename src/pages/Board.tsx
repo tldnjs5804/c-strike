@@ -22,7 +22,7 @@ export default function Board() {
             </Link>
           </div>
 
-          <div className="border border-border">
+          <div className="reveal stagger-children border border-border">
             <div className="hidden grid-cols-[110px_1fr_90px_100px] gap-3.5 border-b border-border bg-bg-surface px-5 py-3 font-mono text-[11px] uppercase tracking-wide text-text-muted sm:grid">
               <span>상태</span>
               <span>제목</span>
@@ -32,7 +32,7 @@ export default function Board() {
             {BOARD_POSTS.map((post) => (
               <div
                 key={post.id}
-                className="grid grid-cols-[86px_1fr] items-center gap-3.5 border-b border-border px-5 py-4 text-[13.5px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[110px_1fr_90px_100px]"
+                className="row-accent grid grid-cols-[86px_1fr] items-center gap-3.5 border-b border-border py-4 pl-4 pr-5 text-[13.5px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[110px_1fr_90px_100px]"
               >
                 <Tag variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Tag>
                 <span className="font-medium text-text-primary">{post.title}</span>
