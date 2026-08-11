@@ -91,6 +91,7 @@ export default function Navbar() {
                 className="relative rounded-md px-4 py-2.5 text-[14.5px] font-medium text-text-secondary transition-colors hover:bg-bg-surface-alt hover:text-text-primary"
               >
                 {item.label}
+                <span className="pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-defend transition-transform duration-200 group-hover:scale-x-100" />
               </Link>
               <div className="invisible absolute left-1/2 top-full min-w-[210px] -translate-x-1/2 translate-y-[-6px] rounded-[10px] border border-border-strong bg-bg-surface p-2 opacity-0 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.55)] transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 <div className="absolute inset-x-0 -top-2.5 h-2.5" />
@@ -112,24 +113,24 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             to="/apply"
-            className="hidden rounded-md border border-attack bg-attack px-[18px] py-[9px] font-mono text-[13px] font-semibold tracking-wide text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_20px_rgba(255,70,85,0.35)] sm:inline-block"
+            className="hidden rounded-md border border-attack bg-attack px-[18px] py-[9px] font-mono text-[13px] font-semibold tracking-wide text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_20px_rgba(255,70,85,0.35)] active:scale-[0.96] sm:inline-block"
           >
             지금 신청하기
           </Link>
           <button
             aria-label="메뉴 열기"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-md border border-border-strong md:hidden"
+            className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-md border border-border-strong transition-colors hover:border-defend active:scale-95 md:hidden"
           >
-            <span className={`h-[1.5px] w-4 bg-text-primary transition-transform ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
-            <span className={`h-[1.5px] w-4 bg-text-primary transition-opacity ${open ? "opacity-0" : ""}`} />
-            <span className={`h-[1.5px] w-4 bg-text-primary transition-transform ${open ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
+            <span className={`h-[1.5px] w-4 bg-text-primary transition-transform duration-200 ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
+            <span className={`h-[1.5px] w-4 bg-text-primary transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
+            <span className={`h-[1.5px] w-4 bg-text-primary transition-transform duration-200 ${open ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="border-t border-border bg-bg-base px-6 pb-6 md:hidden">
+        <div className="animate-[fade-up_0.25s_cubic-bezier(0.16,1,0.3,1)_both] border-t border-border bg-bg-base px-6 pb-6 md:hidden">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="border-b border-border py-3">
               <Link to={item.href} onClick={handleAnchor(item.href)} className="block text-[15px] font-semibold text-text-primary">
@@ -141,7 +142,7 @@ export default function Navbar() {
                     key={child.label}
                     to={child.href}
                     onClick={handleAnchor(child.href)}
-                    className="py-1.5 text-[13.5px] text-text-secondary"
+                    className="py-1.5 text-[13.5px] text-text-secondary transition-colors hover:text-defend"
                   >
                     {child.label}
                   </Link>
@@ -151,7 +152,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/apply"
-            className="mt-4 block rounded-md bg-attack px-4 py-3 text-center font-mono text-[13.5px] font-semibold text-white"
+            className="mt-4 block rounded-md bg-attack px-4 py-3 text-center font-mono text-[13.5px] font-semibold text-white transition-transform active:scale-[0.97]"
           >
             지금 신청하기
           </Link>

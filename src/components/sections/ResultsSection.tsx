@@ -41,8 +41,8 @@ export default function ResultsSection() {
             {LEADERBOARD.map((row) => (
               <div
                 key={row.team}
-                className={`grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 text-[14px] last:border-none sm:grid-cols-[48px_1fr_100px_120px] ${
-                  row.rank === 1 ? "rounded-lg bg-gradient-to-r from-amber/10 to-transparent" : ""
+                className={`grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 text-[14px] transition-colors last:border-none hover:bg-white/[0.03] sm:grid-cols-[48px_1fr_100px_120px] ${
+                  row.rank === 1 ? "bg-gradient-to-r from-amber/10 to-transparent" : ""
                 }`}
               >
                 <span className={`font-mono font-bold ${row.rank === 1 ? "text-[16px] text-amber" : "text-text-secondary"}`}>
@@ -54,7 +54,7 @@ export default function ResultsSection() {
                 </span>
                 <span className="hidden h-1.5 overflow-hidden rounded-full bg-bg-surface-alt sm:block">
                   <i
-                    className="block h-full rounded-full"
+                    className="bar-fill block h-full rounded-full"
                     style={{ width: `${row.pct}%`, background: row.rank === 1 ? "var(--color-amber)" : "var(--color-defend)" }}
                   />
                 </span>
@@ -74,7 +74,7 @@ export default function ResultsSection() {
                 <div key={s.label} className="grid grid-cols-[110px_1fr_34px] items-center gap-2.5 text-[12.5px] sm:grid-cols-[120px_1fr_34px]">
                   <span className="text-text-secondary">{s.label}</span>
                   <span className="h-1.5 overflow-hidden rounded-full bg-bg-surface-alt">
-                    <i className="block h-full rounded-full bg-defend" style={{ width: `${s.pct}%` }} />
+                    <i className="bar-fill block h-full rounded-full bg-defend" style={{ width: `${s.pct}%` }} />
                   </span>
                   <b className="text-right font-mono font-semibold text-text-primary">{s.count}</b>
                 </div>

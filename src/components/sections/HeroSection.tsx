@@ -20,7 +20,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1120px] px-6 text-center sm:px-8">
+      <div className="hero-stagger relative z-10 mx-auto max-w-[1120px] px-6 text-center sm:px-8">
         <div className="mb-4 inline-flex items-center gap-2.5 font-mono text-[12.5px] font-semibold uppercase tracking-[0.14em] text-defend">
           <span className="h-[7px] w-[7px] animate-blink rounded-full bg-defend shadow-[0_0_8px_rgba(45,227,200,0.35)]" />
           {EVENT.eyebrow}
@@ -51,14 +51,14 @@ export default function HeroSection() {
         <div className="mb-16 flex flex-wrap justify-center gap-3.5">
           <Link
             to="/apply"
-            className="group inline-flex items-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white shadow-[0_0_0_1px_var(--color-attack)] transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
+            className="group inline-flex items-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white shadow-[0_0_0_1px_var(--color-attack)] transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)] active:scale-[0.97] active:translate-y-0"
           >
             지금 신청하기
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
           <a
             href="#about"
-            className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-7 py-[15px] font-mono text-[14.5px] font-semibold text-text-primary transition-all hover:border-defend hover:text-defend hover:shadow-[0_0_20px_rgba(45,227,200,0.15)]"
+            className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-7 py-[15px] font-mono text-[14.5px] font-semibold text-text-primary transition-all hover:border-defend hover:text-defend hover:shadow-[0_0_20px_rgba(45,227,200,0.15)] active:scale-[0.97]"
           >
             대회 소개 보기
           </a>

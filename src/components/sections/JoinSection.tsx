@@ -33,7 +33,7 @@ export default function JoinSection() {
             </p>
             <Link
               to="/apply"
-              className="group inline-flex items-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
+              className="group inline-flex items-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)] active:scale-[0.97] active:translate-y-0"
             >
               지금 신청하기
               <span className="transition-transform group-hover:translate-x-1">→</span>
