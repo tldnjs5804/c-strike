@@ -17,9 +17,6 @@ export const MATCH_FLOW = {
   after: { title: "채점 & 순위 확정" },
 };
 
-// 취약점팩 공개 시점 (대회 시작 후 경과 시간, 단위: 시간)
-export const VULN_RELEASE_HOURS = [0, 2, 4, 6, 8];
-
 export const HERO_STATS = [
   { num: "24", label: "지난 대회 참가자(명)" },
   { num: "6", label: "참가 팀" },
