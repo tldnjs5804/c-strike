@@ -7,6 +7,37 @@ export const EVENT = {
   desc: "청주대학교 사이버공격방어대회 — 실전형 Attack-Defense로 검증하는 진짜 보안 실력",
 };
 
+export const CHAPTERS = [
+  {
+    n: "01",
+    title: "대회 소개",
+    teaser: "단순 문제풀이를 넘어선 실전형 Attack-Defense. 목적, 운영 방식, 공략 대상, 보너스 구간.",
+    href: "/about",
+    variant: "attack" as const,
+  },
+  {
+    n: "02",
+    title: "운영 성과",
+    teaser: "2026.6.22 CJU C-Strike 대회 개요, 최종 순위표, 참가자 만족도 조사 결과.",
+    href: "/results",
+    variant: "defend" as const,
+  },
+  {
+    n: "03",
+    title: "참가 안내",
+    teaser: "9월·11월 대회 참가 전 확인해야 할 것들과 신청 절차.",
+    href: "/join",
+    variant: "attack" as const,
+  },
+  {
+    n: "04",
+    title: "문의하기",
+    teaser: "운영 관련 공지·장애·이의제기 접수 채널과 문의 게시판.",
+    href: "/contact",
+    variant: "defend" as const,
+  },
+];
+
 export const HERO_STATS = [
   { num: "24", label: "지난 대회 참가자(명)" },
   { num: "6", label: "참가 팀" },
