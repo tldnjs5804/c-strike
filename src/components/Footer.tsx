@@ -24,7 +24,6 @@ export default function Footer() {
           <Link className="transition-colors hover:text-defend" to="/#results">운영 성과</Link>
           <Link className="transition-colors hover:text-defend" to="/#join">참가 안내</Link>
           <Link className="transition-colors hover:text-defend" to="/#contact">문의하기</Link>
-          <Link className="transition-colors hover:text-defend" to="/board">문의 게시판</Link>
         </nav>
 
         <p className="font-mono text-[12px] text-text-muted">
