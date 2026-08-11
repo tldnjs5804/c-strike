@@ -1,4 +1,4 @@
-import { MATCH_FLOW } from "../data/content";
+import { MATCH_FLOW, VULN_RELEASE_SCHEDULE } from "../data/content";
 
 export default function MatchFlow() {
   return (
@@ -41,11 +41,30 @@ export default function MatchFlow() {
         </div>
       </div>
 
-      <p className="mx-auto mt-8 max-w-[520px] text-center text-[13.5px] leading-relaxed text-text-secondary">
+      <p className="mx-auto mt-8 max-w-[480px] text-center text-[13.5px] leading-relaxed text-text-secondary">
         대회가 시작되면 모든 팀이 <b className="text-text-primary">내 서버는 방어, 상대 서버는 공격</b>을 동시에 계속
-        반복합니다. 그 사이 <b className="text-text-primary">0 / 2 / 4 / 6 / 8시간</b> 시점마다 새 취약점팩이 순차
-        공개됩니다.
+        반복합니다.
       </p>
+
+      {/* 취약점 공개 일정 — 축 위 점이 아니라 그냥 읽으면 되는 라벨 나열 */}
+      <div className="mx-auto mt-6 max-w-[560px] rounded-lg border border-amber/25 bg-amber/[0.05] px-4 py-4 sm:px-6">
+        <p className="mb-3 text-center font-mono text-[11px] font-bold uppercase tracking-wide text-amber">
+          🔓 취약점팩 공개 일정
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2">
+          {VULN_RELEASE_SCHEDULE.map((label, i) => (
+            <span key={label} className="flex items-center gap-1.5">
+              <span className="rounded-full border border-amber/40 bg-bg-card px-3 py-1.5 font-mono text-[12.5px] font-bold text-amber">
+                {label}
+              </span>
+              {i < VULN_RELEASE_SCHEDULE.length - 1 && <span className="text-text-muted">→</span>}
+            </span>
+          ))}
+        </div>
+        <p className="mt-3 text-center text-[12px] leading-relaxed text-text-secondary">
+          총 5개 취약점팩이 이 시점마다 전 팀에게 동시에 순차 공개됩니다.
+        </p>
+      </div>
     </div>
   );
 }
