@@ -10,7 +10,6 @@ const badgeVariants = cva(
       variant: {
         attack: "border-attack/30 bg-attack/10 text-attack",
         defend: "border-defend/30 bg-defend/10 text-defend",
-        amber: "border-amber/30 bg-amber/10 text-amber",
         muted: "border-border-strong bg-bg-surface-alt text-text-muted",
       },
     },

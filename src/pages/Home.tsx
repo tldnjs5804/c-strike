@@ -16,13 +16,16 @@ import {
   TARGETS_NOTE,
 } from "../data/content";
 import { Card, SectionSub, SectionTitle, Eyebrow } from "../components/ui";
+import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import CountUp from "../components/CountUp";
 import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
+import TerminalLog from "../components/TerminalLog";
 import { Box, Coffee, Crosshair, Flag, MessageSquare, Network } from "lucide-react";
 
 const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
@@ -60,11 +63,8 @@ export default function Home() {
               {EVENT.eyebrow}
             </p>
 
-            <h1 className="mb-6 font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[1.02] tracking-tight">
-              <span className="bg-gradient-to-b from-white to-[#c7cee0] bg-clip-text text-transparent">{EVENT.name}</span>
-              <span className="ml-3 text-attack" style={{ textShadow: "0 0 24px rgba(255,70,85,0.35)" }}>
-                {EVENT.year}
-              </span>
+            <h1 className="mb-6 font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[0.97] tracking-tight text-text-primary">
+              {EVENT.name} <span className="text-attack">{EVENT.year}</span>
             </h1>
 
             <div className="mb-7 flex flex-wrap gap-4 font-mono text-[16px] font-bold tracking-[0.06em]">
@@ -75,35 +75,29 @@ export default function Home() {
 
             <p className="mb-10 max-w-[480px] text-[17.5px] leading-relaxed text-text-secondary">{EVENT.desc}</p>
 
-            <div className="flex flex-wrap gap-3.5">
-              <Button asChild>
+            <div className="mb-11 flex flex-wrap items-center gap-5">
+              <Button asChild size="lg">
                 <Link to="/apply" className="group">
                   지금 신청하기
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </Button>
+              <span className="font-mono text-[13.5px] text-text-secondary">9월 · 11월 대회 예정</span>
             </div>
-          </div>
 
-          <div className="reveal self-start rounded-[10px] border border-border-strong bg-bg-card p-7 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
-            <p className="mb-5 font-mono text-[12px] uppercase tracking-[0.14em] text-text-muted">
-              FILE No. CJU-2026-CSTRIKE
-            </p>
-            <dl className="flex flex-col divide-y divide-border">
+            <dl className="flex max-w-[480px] gap-9 border-t border-border pt-7">
               {HERO_STATS.map((s) => (
-                <div key={s.label} className="flex items-baseline justify-between py-3.5 first:pt-0 last:pb-0">
-                  <dt className="text-[14px] text-text-secondary">{s.label}</dt>
-                  <dd className="font-mono text-[26px] font-bold text-text-primary">
+                <div key={s.label}>
+                  <dd className="font-mono text-[25px] font-bold text-text-primary">
                     <CountUp value={parseInt(s.num, 10)} />
                   </dd>
+                  <dt className="text-[12px] text-text-muted">{s.label}</dt>
                 </div>
               ))}
             </dl>
-            <div className="mt-5 flex items-center gap-2 border-t border-border pt-5 font-mono text-[12px] uppercase tracking-wide text-defend">
-              <span className="h-1.5 w-1.5 animate-blink rounded-full bg-defend" />
-              접수 상태 · 확인 중
-            </div>
           </div>
+
+          <TerminalLog />
         </div>
       </header>
 
@@ -166,19 +160,19 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="reveal rounded-lg border border-border bg-bg-surface px-5 py-4 text-[14px] leading-relaxed text-text-secondary">
+            <Alert variant="defend" className="reveal">
               <b className="text-text-primary">{TARGETS_NOTE.lead}</b>
               {TARGETS_NOTE.rest}
-            </p>
+            </Alert>
           </div>
 
           <div
-            className="reveal mt-16 rounded-[14px] border border-amber/25 p-8 sm:p-10"
-            style={{ background: "linear-gradient(135deg, rgba(255,185,55,0.06), rgba(23,29,43,0.4))" }}
+            className="reveal mt-16 rounded-[14px] border border-defend/25 p-8 sm:p-10"
+            style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.07), rgba(20,22,27,0.4))" }}
           >
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
               <div>
-                <p className="mb-2 font-mono text-[12.5px] font-semibold uppercase tracking-wide text-amber">BONUS ZONE</p>
+                <p className="mb-2 font-mono text-[12.5px] font-semibold uppercase tracking-wide text-defend">BONUS ZONE</p>
                 <h3 className="mb-3 text-[24px] font-bold text-text-primary">보너스 구간</h3>
                 <p className="text-[15px] leading-relaxed text-text-secondary">
                   A/D 서비스와 별개로 <b className="text-text-primary">모든 팀이 접근 가능한 공용 Jeopardy 구역</b>.
@@ -188,7 +182,7 @@ export default function Home() {
               <div className="reveal stagger-children flex flex-col gap-3.5">
                 {BONUS_STATS.map((b) => (
                   <div key={b.label} className="flex items-baseline gap-3">
-                    <span className="min-w-[110px] font-mono text-[18px] font-bold text-amber">{b.value}</span>
+                    <span className="min-w-[110px] font-mono text-[18px] font-bold text-defend">{b.value}</span>
                     <span className="text-[13.5px] text-text-secondary">{b.label}</span>
                   </div>
                 ))}
@@ -238,20 +232,20 @@ export default function Home() {
                 {LEADERBOARD.map((row) => (
                   <TableRow
                     key={row.team}
-                    className={row.rank === 1 ? "bg-gradient-to-r from-amber/10 to-transparent" : ""}
+                    className={row.rank === 1 ? "bg-gradient-to-r from-attack/10 to-transparent" : ""}
                   >
-                    <TableCell className={`px-0 font-mono font-bold ${row.rank === 1 ? "text-[16px] text-amber" : "text-text-secondary"}`}>
+                    <TableCell className={`px-0 font-mono font-bold ${row.rank === 1 ? "text-[16px] text-attack" : "text-text-secondary"}`}>
                       {row.rank}
                     </TableCell>
                     <TableCell className="font-semibold text-text-primary">{row.team}</TableCell>
-                    <TableCell className={`text-right font-mono sm:text-left ${row.rank === 1 ? "font-bold text-amber" : "text-text-secondary"}`}>
+                    <TableCell className={`text-right font-mono sm:text-left ${row.rank === 1 ? "font-bold text-attack" : "text-text-secondary"}`}>
                       <CountUp value={row.score} format={(n) => n.toLocaleString()} />
                     </TableCell>
                     <TableCell className="hidden w-[120px] sm:table-cell">
                       <span className="block h-1.5 overflow-hidden rounded-full bg-bg-surface-alt">
                         <i
                           className="bar-fill block h-full rounded-full"
-                          style={{ width: `${row.pct}%`, background: row.rank === 1 ? "var(--color-amber)" : "var(--color-defend)" }}
+                          style={{ width: `${row.pct}%`, background: row.rank === 1 ? "var(--color-attack)" : "var(--color-defend)" }}
                         />
                       </span>
                     </TableCell>
@@ -316,7 +310,7 @@ export default function Home() {
                   <span
                     className={
                       item.pending
-                        ? "inline-flex items-center gap-1.5 font-mono text-[13px] text-amber before:content-['○']"
+                        ? "inline-flex items-center gap-1.5 font-mono text-[13px] text-text-muted before:content-['○']"
                         : "text-[15px] text-text-primary"
                     }
                   >
@@ -325,7 +319,8 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-5 border-t border-border pt-6">
+            <Separator className="mb-6" />
+            <div className="flex flex-wrap items-center justify-between gap-5">
               <p className="max-w-[400px] text-[14.5px] text-text-secondary">
                 신청은 <b className="text-text-primary">구글 폼</b>으로 받습니다. 이름·학번·연락처·팀 구성 정보를
                 준비해주세요.
@@ -367,7 +362,7 @@ export default function Home() {
                     key={post.id}
                     className="grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[14px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
                   >
-                    <Badge variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Badge>
+                    <Badge variant={post.status === "답변완료" ? "defend" : "muted"}>{post.status}</Badge>
                     <span className="font-medium text-text-primary">{post.title}</span>
                     <span className="hidden font-mono text-[12.5px] text-text-muted sm:block">{post.date}</span>
                   </div>
