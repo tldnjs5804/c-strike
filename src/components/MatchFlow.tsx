@@ -1,5 +1,5 @@
 import { MATCH_FLOW, VULN_RELEASE_HOURS, VULN_RELEASE_SCHEDULE } from "../data/content";
-import { IconCrosshair, IconServer, IconShield, IconTrophy } from "./Icons";
+import { Crosshair, Server, Shield, Trophy } from "lucide-react";
 
 export default function MatchFlow() {
   return (
@@ -7,12 +7,12 @@ export default function MatchFlow() {
       {/* centered DEFEND / ATTACK badge, floating above the timeline */}
       <div className="mb-8 flex flex-wrap items-center justify-center gap-2.5">
         <span className="flex items-center gap-1.5 rounded-full border border-defend/40 bg-defend/10 px-3 py-1 font-mono text-[13px] font-bold text-defend">
-          <IconShield className="h-[13px] w-[13px]" />
+          <Shield className="h-[13px] w-[13px]" strokeWidth={2} />
           DEFEND
         </span>
-        <span className="font-mono text-[15px] text-text-muted">⇄</span>
+        <span className="font-mono text-[15px] text-text-secondary">⇄</span>
         <span className="flex items-center gap-1.5 rounded-full border border-attack/40 bg-attack/10 px-3 py-1 font-mono text-[13px] font-bold text-attack">
-          <IconCrosshair className="h-[13px] w-[13px]" />
+          <Crosshair className="h-[13px] w-[13px]" strokeWidth={2} />
           ATTACK
         </span>
         <span className="ml-1 font-mono text-[12px] font-bold uppercase tracking-wide text-amber">대회 시간 내내 반복</span>
@@ -27,7 +27,7 @@ export default function MatchFlow() {
 
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-defend bg-bg-card text-defend sm:h-10 sm:w-10">
-            <IconServer className="h-[18px] w-[18px]" />
+            <Server className="h-[18px] w-[18px]" strokeWidth={1.75} />
           </span>
           <span className="text-[12.5px] font-bold leading-tight text-text-primary sm:text-[14px]">
             {MATCH_FLOW.before.title}
@@ -46,14 +46,14 @@ export default function MatchFlow() {
 
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-attack bg-attack text-white sm:h-10 sm:w-10">
-            <IconTrophy className="h-[18px] w-[18px]" />
+            <Trophy className="h-[18px] w-[18px]" strokeWidth={1.75} />
           </span>
           <span className="text-[12.5px] font-bold leading-tight text-text-primary sm:text-[14px]">
             {MATCH_FLOW.after.title}
           </span>
         </div>
       </div>
-      <p className="mt-2 text-center font-mono text-[12px] uppercase tracking-wide text-text-muted">
+      <p className="mt-2 text-center font-mono text-[12px] uppercase tracking-wide text-text-secondary">
         취약점팩 공개 시점
       </p>
 
@@ -73,7 +73,7 @@ export default function MatchFlow() {
               <span className="rounded-full border border-amber/40 bg-bg-card px-3 py-1.5 font-mono text-[13.5px] font-bold text-amber">
                 {label}
               </span>
-              {i < VULN_RELEASE_SCHEDULE.length - 1 && <span className="text-text-muted">→</span>}
+              {i < VULN_RELEASE_SCHEDULE.length - 1 && <span className="text-text-secondary">→</span>}
             </span>
           ))}
         </div>
