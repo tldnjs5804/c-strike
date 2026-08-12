@@ -37,6 +37,16 @@ export default function Home() {
     <>
       {/* ---------- HERO ---------- */}
       <header className="relative overflow-hidden border-b border-border pb-16 pt-[128px] sm:pb-24 sm:pt-[160px]">
+        <div
+          className="pointer-events-none absolute -left-32 -top-40 h-[420px] w-[420px] rounded-full opacity-[0.16] blur-[110px]"
+          style={{ background: "var(--color-attack)" }}
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -right-24 top-0 h-[380px] w-[380px] rounded-full opacity-[0.14] blur-[110px]"
+          style={{ background: "var(--color-defend)" }}
+          aria-hidden="true"
+        />
         <HeroVisual />
         <div className="relative mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-6 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
           <div className="hero-stagger">
