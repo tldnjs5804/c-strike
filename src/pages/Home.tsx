@@ -15,7 +15,10 @@ import {
   TARGETS,
   TARGETS_NOTE,
 } from "../data/content";
-import { Card, SectionSub, SectionTitle, Eyebrow, Tag } from "../components/ui";
+import { Card, SectionSub, SectionTitle, Eyebrow } from "../components/ui";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import CountUp from "../components/CountUp";
 import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
@@ -73,13 +76,12 @@ export default function Home() {
             <p className="mb-10 max-w-[480px] text-[17.5px] leading-relaxed text-text-secondary">{EVENT.desc}</p>
 
             <div className="flex flex-wrap gap-3.5">
-              <Link
-                to="/apply"
-                className="group inline-flex items-center gap-2 rounded-lg bg-attack px-6 py-3 font-mono text-[14.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
-              >
-                지금 신청하기
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
+              <Button asChild>
+                <Link to="/apply" className="group">
+                  지금 신청하기
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </Button>
             </div>
           </div>
 
@@ -223,38 +225,40 @@ export default function Home() {
 
           <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">최종 순위</h3>
           <div className="reveal mb-12 rounded-[14px] border border-border bg-bg-card p-6 sm:p-8">
-            <div className="flex flex-col">
-              <div className="grid grid-cols-[36px_1fr_70px] gap-3 pb-2.5 font-mono text-[11.5px] uppercase tracking-wide text-text-secondary sm:grid-cols-[48px_1fr_100px_120px]">
-                <span>순위</span>
-                <span>팀</span>
-                <span>점수</span>
-                <span className="hidden sm:block" />
-              </div>
-              <div className="reveal stagger-children">
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent">
+                  <TableHead className="w-9 px-0">순위</TableHead>
+                  <TableHead>팀</TableHead>
+                  <TableHead className="text-right sm:text-left">점수</TableHead>
+                  <TableHead className="hidden sm:table-cell" />
+                </TableRow>
+              </TableHeader>
+              <TableBody className="reveal stagger-children">
                 {LEADERBOARD.map((row) => (
-                  <div
+                  <TableRow
                     key={row.team}
-                    className={`grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 pl-3 text-[15px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[48px_1fr_100px_120px] ${
-                      row.rank === 1 ? "rounded-lg bg-gradient-to-r from-amber/10 to-transparent" : ""
-                    }`}
+                    className={row.rank === 1 ? "bg-gradient-to-r from-amber/10 to-transparent" : ""}
                   >
-                    <span className={`font-mono font-bold ${row.rank === 1 ? "text-[16px] text-amber" : "text-text-secondary"}`}>
+                    <TableCell className={`px-0 font-mono font-bold ${row.rank === 1 ? "text-[16px] text-amber" : "text-text-secondary"}`}>
                       {row.rank}
-                    </span>
-                    <span className="font-semibold text-text-primary">{row.team}</span>
-                    <span className={`font-mono ${row.rank === 1 ? "font-bold text-amber" : "text-text-secondary"}`}>
+                    </TableCell>
+                    <TableCell className="font-semibold text-text-primary">{row.team}</TableCell>
+                    <TableCell className={`text-right font-mono sm:text-left ${row.rank === 1 ? "font-bold text-amber" : "text-text-secondary"}`}>
                       <CountUp value={row.score} format={(n) => n.toLocaleString()} />
-                    </span>
-                    <span className="hidden h-1.5 overflow-hidden rounded-full bg-bg-surface-alt sm:block">
-                      <i
-                        className="bar-fill block h-full rounded-full"
-                        style={{ width: `${row.pct}%`, background: row.rank === 1 ? "var(--color-amber)" : "var(--color-defend)" }}
-                      />
-                    </span>
-                  </div>
+                    </TableCell>
+                    <TableCell className="hidden w-[120px] sm:table-cell">
+                      <span className="block h-1.5 overflow-hidden rounded-full bg-bg-surface-alt">
+                        <i
+                          className="bar-fill block h-full rounded-full"
+                          style={{ width: `${row.pct}%`, background: row.rank === 1 ? "var(--color-amber)" : "var(--color-defend)" }}
+                        />
+                      </span>
+                    </TableCell>
+                  </TableRow>
                 ))}
-              </div>
-            </div>
+              </TableBody>
+            </Table>
             <p className="mt-[18px] border-t border-dashed border-border pt-4 text-[13px] text-text-muted">
               ※ 참가자 실명은 결과보고서에 기재되어 있으나, 외부 공개용 페이지 게재 여부는 확인 중입니다.
             </p>
@@ -326,13 +330,12 @@ export default function Home() {
                 신청은 <b className="text-text-primary">구글 폼</b>으로 받습니다. 이름·학번·연락처·팀 구성 정보를
                 준비해주세요.
               </p>
-              <Link
-                to="/apply"
-                className="group inline-flex items-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
-              >
-                지금 신청하기
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
+              <Button asChild size="lg">
+                <Link to="/apply" className="group">
+                  지금 신청하기
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -364,7 +367,7 @@ export default function Home() {
                     key={post.id}
                     className="grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[14px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
                   >
-                    <Tag variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Tag>
+                    <Badge variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Badge>
                     <span className="font-medium text-text-primary">{post.title}</span>
                     <span className="hidden font-mono text-[12.5px] text-text-muted sm:block">{post.date}</span>
                   </div>

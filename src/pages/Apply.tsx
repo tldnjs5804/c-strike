@@ -1,5 +1,7 @@
 import SubpageHero from "../components/SubpageHero";
 import { GOOGLE_FORM_URL } from "../data/content";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const CHECKLIST = ["이름", "학번", "학과", "연락처", "이메일", "팀 구성 (있다면)"];
 
@@ -26,25 +28,21 @@ export default function Apply() {
 
             <ul className="mb-7 flex flex-wrap gap-2">
               {CHECKLIST.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-border-strong bg-bg-surface px-3 py-1.5 font-mono text-[13px] text-text-secondary"
-                >
-                  {item}
+                <li key={item}>
+                  <Badge variant="muted" className="px-3 py-1.5 text-[13px] normal-case text-text-secondary">
+                    {item}
+                  </Badge>
                 </li>
               ))}
             </ul>
 
             {formReady ? (
-              <a
-                href={GOOGLE_FORM_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[15px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
-              >
-                구글 폼으로 신청하기
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
+              <Button asChild size="lg" className="group w-full">
+                <a href={GOOGLE_FORM_URL} target="_blank" rel="noreferrer">
+                  구글 폼으로 신청하기
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              </Button>
             ) : (
               <div className="flex w-full flex-col items-center gap-2 rounded-lg border border-dashed border-border-strong px-7 py-[15px] text-center">
                 <span className="font-mono text-[14px] font-semibold text-text-secondary">신청 폼 준비 중입니다</span>

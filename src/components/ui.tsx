@@ -33,28 +33,6 @@ export function SectionSub({ children }: { children: ReactNode }) {
   );
 }
 
-export function Tag({
-  children,
-  variant = "defend",
-}: {
-  children: ReactNode;
-  variant?: "attack" | "defend" | "amber" | "muted";
-}) {
-  const variants: Record<string, string> = {
-    attack: "text-attack bg-attack/10 border-attack/30",
-    defend: "text-defend bg-defend/10 border-defend/30",
-    amber: "text-amber bg-amber/10 border-amber/30",
-    muted: "text-text-muted bg-bg-surface-alt border-border-strong",
-  };
-  return (
-    <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[11.5px] font-semibold tracking-wide ${variants[variant]}`}
-    >
-      {children}
-    </span>
-  );
-}
-
 export function Card({
   children,
   className = "",
@@ -77,9 +55,4 @@ export function Card({
 
 export function Divider({ className = "" }: { className?: string }) {
   return <div className={`h-px bg-gradient-to-r from-transparent via-border to-transparent ${className}`} />;
-}
-
-export function IndexBadge({ n, variant = "muted" }: { n: string; variant?: "attack" | "defend" | "muted" }) {
-  const color = variant === "attack" ? "text-attack" : variant === "defend" ? "text-defend" : "text-text-muted";
-  return <span className={`font-mono text-[15px] font-bold ${color}`}>{n}</span>;
 }
