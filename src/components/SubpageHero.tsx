@@ -23,7 +23,7 @@ export default function SubpageHero({
         </Link>
         {eyebrow && (
           <div className="mb-3 flex items-center gap-2.5 font-mono text-[13px] font-semibold uppercase tracking-[0.14em] text-defend">
-            <span className="h-[7px] w-[7px] shrink-0 animate-blink rounded-full bg-defend shadow-[0_0_8px_rgba(45,227,200,0.35)]" />
+            <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-defend shadow-[0_0_8px_rgba(45,227,200,0.35)]" />
             {eyebrow}
           </div>
         )}

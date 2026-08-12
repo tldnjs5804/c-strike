@@ -6,11 +6,11 @@ export default function MatchFlow() {
       {/* centered DEFEND / ATTACK badge, floating above the timeline */}
       <div className="mb-8 flex flex-wrap items-center justify-center gap-2.5">
         <span className="rounded-full border border-defend/40 bg-defend/10 px-3 py-1 font-mono text-[13px] font-bold text-defend">
-          🛡️ DEFEND
+          DEFEND
         </span>
         <span className="font-mono text-[15px] text-text-muted">⇄</span>
         <span className="rounded-full border border-attack/40 bg-attack/10 px-3 py-1 font-mono text-[13px] font-bold text-attack">
-          ⚔️ ATTACK
+          ATTACK
         </span>
         <span className="ml-1 font-mono text-[12px] font-bold uppercase tracking-wide text-amber">대회 시간 내내 반복</span>
       </div>
@@ -23,9 +23,7 @@ export default function MatchFlow() {
         />
 
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[16px] sm:h-10 sm:w-10 sm:text-[18px]">
-            🖥️
-          </span>
+          <span className="h-4 w-4 rounded-full border-2 border-defend bg-bg-card sm:h-[18px] sm:w-[18px]" />
           <span className="text-[12.5px] font-bold leading-tight text-text-primary sm:text-[14px]">
             {MATCH_FLOW.before.title}
           </span>
@@ -42,9 +40,7 @@ export default function MatchFlow() {
         </div>
 
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border-strong bg-bg-surface-alt text-[16px] sm:h-10 sm:w-10 sm:text-[18px]">
-            🏆
-          </span>
+          <span className="h-4 w-4 rounded-full border-2 border-attack bg-attack sm:h-[18px] sm:w-[18px]" />
           <span className="text-[12.5px] font-bold leading-tight text-text-primary sm:text-[14px]">
             {MATCH_FLOW.after.title}
           </span>
@@ -62,7 +58,7 @@ export default function MatchFlow() {
       {/* 취약점 공개 일정 — 축 위 점이 아니라 그냥 읽으면 되는 라벨 나열 */}
       <div className="mx-auto mt-6 max-w-[560px] rounded-lg border border-amber/25 bg-amber/[0.05] px-4 py-4 sm:px-6">
         <p className="mb-3 text-center font-mono text-[12px] font-bold uppercase tracking-wide text-amber">
-          🔓 취약점팩 공개 일정
+          취약점팩 공개 일정
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2">
           {VULN_RELEASE_SCHEDULE.map((label, i) => (
