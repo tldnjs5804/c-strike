@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { EVENT } from "../data/content";
+import { Button } from "./ui/button";
 
 const NAV_ITEMS = [
   { label: "대회 소개", href: "/#about" },
@@ -58,12 +59,9 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/apply"
-            className="hidden rounded-md border border-attack bg-attack px-[18px] py-[9px] font-mono text-[13px] font-semibold tracking-wide text-white transition-all hover:bg-attack-dark hover:shadow-[0_0_20px_rgba(255,70,85,0.35)] sm:inline-block"
-          >
-            지금 신청하기
-          </Link>
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <Link to="/apply">지금 신청하기</Link>
+          </Button>
           <button
             aria-label="메뉴 열기"
             onClick={() => setOpen((v) => !v)}
@@ -88,12 +86,9 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Link
-            to="/apply"
-            className="mt-4 block rounded-md bg-attack px-4 py-3 text-center font-mono text-[13.5px] font-semibold text-white transition-transform active:scale-[0.97]"
-          >
-            지금 신청하기
-          </Link>
+          <Button asChild className="mt-4 w-full active:scale-[0.97]">
+            <Link to="/apply">지금 신청하기</Link>
+          </Button>
         </div>
       )}
     </nav>

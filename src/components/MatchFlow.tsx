@@ -1,20 +1,21 @@
 import { MATCH_FLOW, VULN_RELEASE_HOURS, VULN_RELEASE_SCHEDULE } from "../data/content";
 import { Crosshair, Server, Shield, Trophy } from "lucide-react";
+import { Badge } from "./ui/badge";
 
 export default function MatchFlow() {
   return (
     <div className="reveal rounded-[14px] border border-border bg-bg-card px-5 py-10 sm:px-10">
       {/* centered DEFEND / ATTACK badge, floating above the timeline */}
       <div className="mb-8 flex flex-wrap items-center justify-center gap-2.5">
-        <span className="flex items-center gap-1.5 rounded-full border border-defend/40 bg-defend/10 px-3 py-1 font-mono text-[13px] font-bold text-defend">
+        <Badge variant="defend" className="px-3 py-1 text-[13px] font-bold">
           <Shield className="h-[13px] w-[13px]" strokeWidth={2} />
           DEFEND
-        </span>
+        </Badge>
         <span className="font-mono text-[15px] text-text-secondary">⇄</span>
-        <span className="flex items-center gap-1.5 rounded-full border border-attack/40 bg-attack/10 px-3 py-1 font-mono text-[13px] font-bold text-attack">
+        <Badge variant="attack" className="px-3 py-1 text-[13px] font-bold">
           <Crosshair className="h-[13px] w-[13px]" strokeWidth={2} />
           ATTACK
-        </span>
+        </Badge>
         <span className="ml-1 font-mono text-[12px] font-bold uppercase tracking-wide text-amber">대회 시간 내내 반복</span>
       </div>
 
@@ -70,9 +71,9 @@ export default function MatchFlow() {
         <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2">
           {VULN_RELEASE_SCHEDULE.map((label, i) => (
             <span key={label} className="flex items-center gap-1.5">
-              <span className="rounded-full border border-amber/40 bg-bg-card px-3 py-1.5 font-mono text-[13.5px] font-bold text-amber">
+              <Badge variant="amber" className="bg-bg-card px-3 py-1.5 text-[13.5px] font-bold">
                 {label}
-              </span>
+              </Badge>
               {i < VULN_RELEASE_SCHEDULE.length - 1 && <span className="text-text-secondary">→</span>}
             </span>
           ))}
