@@ -13,8 +13,8 @@
   --color-border-strong: #37415a;
 
   --color-text-primary: #f4f6fb;
-  --color-text-secondary: #9aa5bd;
-  --color-text-muted: #5f6a85;
+  --color-text-secondary: #c9cfe0;
+  --color-text-muted: #8992ab;
 
   --color-attack: #ff4655;
   --color-attack-dark: #b9202d;
@@ -46,6 +46,15 @@
   0% { opacity: 0; transform: scale(0.6); }
   70% { opacity: 1; transform: scale(1.08); }
   100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.6); }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -28; }
 }
 
 html {
@@ -178,6 +187,17 @@ body {
 }
 .row-accent:hover::before {
   transform: scaleY(1);
+}
+
+/* hero key-visual: network nodes pulse, attack/defend paths animate their dashes */
+.hv-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pulse 2.4s ease-in-out infinite;
+}
+.hv-path {
+  stroke-dasharray: 5 7;
+  animation: dash-flow 1.1s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

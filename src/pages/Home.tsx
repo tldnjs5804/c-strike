@@ -19,6 +19,7 @@ import { Card, SectionSub, SectionTitle, Eyebrow, Tag } from "../components/ui";
 import CountUp from "../components/CountUp";
 import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
+import HeroVisual from "../components/HeroVisual";
 
 export default function Home() {
   const { hash } = useLocation();
@@ -35,10 +36,11 @@ export default function Home() {
   return (
     <>
       {/* ---------- HERO ---------- */}
-      <header className="border-b border-border pb-16 pt-[128px] sm:pb-24 sm:pt-[160px]">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-6 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
+      <header className="relative overflow-hidden border-b border-border pb-16 pt-[128px] sm:pb-24 sm:pt-[160px]">
+        <HeroVisual />
+        <div className="relative mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-6 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
           <div className="hero-stagger">
-            <p className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-[0.16em] text-defend">
+            <p className="mb-5 font-mono text-[13px] font-semibold uppercase tracking-[0.16em] text-defend">
               {EVENT.eyebrow}
             </p>
 
@@ -49,18 +51,18 @@ export default function Home() {
               </span>
             </h1>
 
-            <div className="mb-7 flex flex-wrap gap-4 font-mono text-[15px] font-bold tracking-[0.06em]">
+            <div className="mb-7 flex flex-wrap gap-4 font-mono text-[16px] font-bold tracking-[0.06em]">
               <span className="text-attack">{EVENT.slogan[0]}</span>
               <span className="text-defend">{EVENT.slogan[1]}</span>
               <span className="text-text-primary">{EVENT.slogan[2]}</span>
             </div>
 
-            <p className="mb-10 max-w-[480px] text-[16.5px] leading-relaxed text-text-secondary">{EVENT.desc}</p>
+            <p className="mb-10 max-w-[480px] text-[17.5px] leading-relaxed text-text-secondary">{EVENT.desc}</p>
 
             <div className="flex flex-wrap gap-3.5">
               <Link
                 to="/apply"
-                className="group inline-flex items-center gap-2 rounded-lg bg-attack px-6 py-3 font-mono text-[13.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
+                className="group inline-flex items-center gap-2 rounded-lg bg-attack px-6 py-3 font-mono text-[14.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
               >
                 지금 신청하기
                 <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -69,20 +71,20 @@ export default function Home() {
           </div>
 
           <div className="reveal self-start rounded-[10px] border border-border-strong bg-bg-card p-7 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
-            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted">
+            <p className="mb-5 font-mono text-[12px] uppercase tracking-[0.14em] text-text-muted">
               FILE No. CJU-2026-CSTRIKE
             </p>
             <dl className="flex flex-col divide-y divide-border">
               {HERO_STATS.map((s) => (
                 <div key={s.label} className="flex items-baseline justify-between py-3.5 first:pt-0 last:pb-0">
-                  <dt className="text-[13px] text-text-secondary">{s.label}</dt>
+                  <dt className="text-[14px] text-text-secondary">{s.label}</dt>
                   <dd className="font-mono text-[26px] font-bold text-text-primary">
                     <CountUp value={parseInt(s.num, 10)} />
                   </dd>
                 </div>
               ))}
             </dl>
-            <div className="mt-5 flex items-center gap-2 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-wide text-defend">
+            <div className="mt-5 flex items-center gap-2 border-t border-border pt-5 font-mono text-[12px] uppercase tracking-wide text-defend">
               <span className="h-1.5 w-1.5 animate-blink rounded-full bg-defend" />
               접수 상태 · 확인 중
             </div>
@@ -106,20 +108,20 @@ export default function Home() {
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-defend/10 text-[12px] font-bold text-defend">
                   ✓
                 </span>
-                <p className="text-[14.5px] leading-[1.7] text-text-secondary">{p}</p>
+                <p className="text-[15.5px] leading-[1.7] text-text-primary">{p}</p>
               </div>
             ))}
           </div>
 
-          <h3 className="reveal mb-2 text-[19px] font-bold text-text-primary">어떻게 진행되나요?</h3>
-          <p className="reveal mb-6 text-[13.5px] text-text-secondary">
+          <h3 className="reveal mb-2 text-[20px] font-bold text-text-primary">어떻게 진행되나요?</h3>
+          <p className="reveal mb-6 text-[14.5px] text-text-secondary">
             방어와 공격을 동시에, 반복적으로 수행하며 취약점이 단계적으로 공개됩니다.
           </p>
           <div className="mb-16">
             <MatchFlow />
           </div>
 
-          <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">세부 운영 정보</h3>
+          <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">세부 운영 정보</h3>
           <div className="reveal stagger-children mb-16 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {RULES.map((r) => (
               <div key={r.term} className="flex items-start gap-3.5 rounded-[10px] border border-border bg-bg-card p-5">
@@ -127,24 +129,24 @@ export default function Home() {
                   {r.icon}
                 </span>
                 <div>
-                  <p className="mb-1 font-mono text-[11px] font-bold uppercase tracking-wide text-text-muted">{r.term}</p>
-                  <p className="text-[14px] leading-relaxed text-text-secondary">{r.value}</p>
+                  <p className="mb-1 font-mono text-[12px] font-bold uppercase tracking-wide text-text-muted">{r.term}</p>
+                  <p className="text-[15px] leading-relaxed text-text-primary">{r.value}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">공략해야 할 취약점</h3>
+          <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">공략해야 할 취약점</h3>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
             <div className="reveal stagger-children flex flex-col gap-3">
               {TARGETS.map((t) => (
                 <div key={t.tag} className="flex items-baseline gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
-                  <span className="min-w-16 shrink-0 font-mono text-[11px] font-bold text-attack">{t.tag}</span>
-                  <p className="text-[13.5px] leading-relaxed text-text-secondary">{t.desc}</p>
+                  <span className="min-w-16 shrink-0 font-mono text-[12px] font-bold text-attack">{t.tag}</span>
+                  <p className="text-[14.5px] leading-relaxed text-text-primary">{t.desc}</p>
                 </div>
               ))}
             </div>
-            <p className="reveal rounded-lg border border-border bg-bg-surface px-5 py-4 text-[13px] leading-relaxed text-text-secondary">
+            <p className="reveal rounded-lg border border-border bg-bg-surface px-5 py-4 text-[14px] leading-relaxed text-text-secondary">
               {TARGETS_NOTE}
             </p>
           </div>
@@ -155,9 +157,9 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
               <div>
-                <p className="mb-2 font-mono text-[11.5px] font-semibold uppercase tracking-wide text-amber">BONUS ZONE</p>
+                <p className="mb-2 font-mono text-[12.5px] font-semibold uppercase tracking-wide text-amber">BONUS ZONE</p>
                 <h3 className="mb-3 text-[24px] font-bold text-text-primary">보너스 구간</h3>
-                <p className="text-[14px] leading-relaxed text-text-secondary">
+                <p className="text-[15px] leading-relaxed text-text-primary">
                   A/D 서비스와 별개로 모든 팀이 접근 가능한 공용 Jeopardy 구역. 공방 소강상태 시 몰입도를 유지하고
                   팀 전략 다양성을 부여합니다.
                 </p>
@@ -166,7 +168,7 @@ export default function Home() {
                 {BONUS_STATS.map((b) => (
                   <div key={b.label} className="flex items-baseline gap-3">
                     <span className="min-w-[110px] font-mono text-[18px] font-bold text-amber">{b.value}</span>
-                    <span className="text-[12.5px] text-text-muted">{b.label}</span>
+                    <span className="text-[13.5px] text-text-secondary">{b.label}</span>
                   </div>
                 ))}
               </div>
@@ -193,16 +195,16 @@ export default function Home() {
                   i !== RESULTS_OVERVIEW.length - 1 ? "sm:border-r" : ""
                 } border-b sm:border-b-0`}
               >
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wide text-defend">{item.label}</span>
-                <span className="text-[14.5px] font-medium leading-snug text-text-primary">{item.value}</span>
+                <span className="font-mono text-[11.5px] font-bold uppercase tracking-wide text-defend">{item.label}</span>
+                <span className="text-[15.5px] font-medium leading-snug text-text-primary">{item.value}</span>
               </div>
             ))}
           </div>
 
-          <h3 className="reveal mb-5 text-[17px] font-bold text-text-primary">최종 순위</h3>
+          <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">최종 순위</h3>
           <div className="reveal mb-12 rounded-[14px] border border-border bg-bg-card p-6 sm:p-8">
             <div className="flex flex-col">
-              <div className="grid grid-cols-[36px_1fr_70px] gap-3 pb-2.5 font-mono text-[11px] uppercase tracking-wide text-text-muted sm:grid-cols-[48px_1fr_100px_120px]">
+              <div className="grid grid-cols-[36px_1fr_70px] gap-3 pb-2.5 font-mono text-[11.5px] uppercase tracking-wide text-text-muted sm:grid-cols-[48px_1fr_100px_120px]">
                 <span>순위</span>
                 <span>팀</span>
                 <span>점수</span>
@@ -212,7 +214,7 @@ export default function Home() {
                 {LEADERBOARD.map((row) => (
                   <div
                     key={row.team}
-                    className={`row-accent grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 pl-3 text-[14px] last:border-none sm:grid-cols-[48px_1fr_100px_120px] ${
+                    className={`row-accent grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 pl-3 text-[15px] last:border-none sm:grid-cols-[48px_1fr_100px_120px] ${
                       row.rank === 1 ? "rounded-lg bg-gradient-to-r from-amber/10 to-transparent" : ""
                     }`}
                   >
@@ -233,17 +235,17 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <p className="mt-[18px] border-t border-dashed border-border pt-4 text-[12px] text-text-muted">
+            <p className="mt-[18px] border-t border-dashed border-border pt-4 text-[13px] text-text-muted">
               ※ 참가자 실명은 결과보고서에 기재되어 있으나, 외부 공개용 페이지 게재 여부는 확인 중입니다.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <Card>
-              <p className="mb-3.5 text-[14px] text-text-secondary">24명 중 17명 응답 · 5점 척도 4점 이상 = 긍정</p>
+              <p className="mb-3.5 text-[15px] text-text-secondary">24명 중 17명 응답 · 5점 척도 4점 이상 = 긍정</p>
               <div className="reveal stagger-children flex flex-col gap-2.5">
                 {SATISFACTION.map((s) => (
-                  <div key={s.label} className="grid grid-cols-[110px_1fr_34px] items-center gap-2.5 text-[12.5px] sm:grid-cols-[120px_1fr_34px]">
+                  <div key={s.label} className="grid grid-cols-[110px_1fr_34px] items-center gap-2.5 text-[13.5px] sm:grid-cols-[120px_1fr_34px]">
                     <span className="text-text-secondary">{s.label}</span>
                     <span className="h-1.5 overflow-hidden rounded-full bg-bg-surface-alt">
                       <i className="bar-fill block h-full rounded-full bg-defend" style={{ width: `${s.pct}%` }} />
@@ -252,7 +254,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="mt-3.5 text-[12.5px] leading-relaxed text-text-muted">
+              <p className="mt-3.5 text-[13.5px] leading-relaxed text-text-secondary">
                 주요 긍정 의견 — 공방전 방식, 팀 협업, 문제 다양성, 운영진 지원
               </p>
             </Card>
@@ -261,10 +263,10 @@ export default function Home() {
               <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg bg-attack/10 text-[16px] text-attack">
                 ☕
               </div>
-              <h3 className="mb-2.5 text-[17px] font-bold text-text-primary">참가자 편의</h3>
+              <h3 className="mb-2.5 text-[18px] font-bold text-text-primary">참가자 편의</h3>
               <ul className="flex flex-col gap-1.5">
                 {AMENITIES.map((a) => (
-                  <li key={a} className="flex gap-1.5 text-[14px] text-text-secondary">
+                  <li key={a} className="flex gap-1.5 text-[15px] text-text-primary">
                     <span className="font-bold text-defend">›</span>
                     {a}
                   </li>
@@ -286,12 +288,12 @@ export default function Home() {
             <div className="reveal stagger-children mb-7 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {JOIN_ITEMS.map((item) => (
                 <div key={item.label} className="flex flex-col gap-2 rounded-lg border border-border bg-bg-surface p-4">
-                  <span className="font-mono text-[11px] uppercase tracking-wide text-text-muted">{item.label}</span>
+                  <span className="font-mono text-[11.5px] uppercase tracking-wide text-text-muted">{item.label}</span>
                   <span
                     className={
                       item.pending
-                        ? "inline-flex items-center gap-1.5 font-mono text-[12.5px] text-amber before:content-['○']"
-                        : "text-[14px] text-text-secondary"
+                        ? "inline-flex items-center gap-1.5 font-mono text-[13px] text-amber before:content-['○']"
+                        : "text-[15px] text-text-primary"
                     }
                   >
                     {item.value}
@@ -300,7 +302,7 @@ export default function Home() {
               ))}
             </div>
             <div className="flex flex-wrap items-center justify-between gap-5 border-t border-border pt-6">
-              <p className="max-w-[400px] text-[13.5px] text-text-muted">
+              <p className="max-w-[400px] text-[14.5px] text-text-secondary">
                 신청은 구글 폼으로 받습니다. 이름·학번·연락처·팀 구성 정보를 준비해주세요.
               </p>
               <Link
@@ -325,13 +327,13 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start">
             <div>
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-[17px] font-bold text-text-primary">문의 게시판</h3>
-                <p className="font-mono text-[12px] text-text-muted">
+                <h3 className="text-[18px] font-bold text-text-primary">문의 게시판</h3>
+                <p className="font-mono text-[13px] text-text-muted">
                   총 <b className="text-text-primary">{BOARD_POSTS.length}</b>건
                 </p>
               </div>
               <div className="reveal stagger-children overflow-hidden rounded-xl border border-border bg-bg-card">
-                <div className="hidden grid-cols-[100px_1fr_80px] gap-3 border-b border-border bg-bg-surface px-4 py-3 font-mono text-[10.5px] uppercase tracking-wide text-text-muted sm:grid">
+                <div className="hidden grid-cols-[100px_1fr_80px] gap-3 border-b border-border bg-bg-surface px-4 py-3 font-mono text-[11px] uppercase tracking-wide text-text-muted sm:grid">
                   <span>상태</span>
                   <span>제목</span>
                   <span>작성일</span>
@@ -339,18 +341,18 @@ export default function Home() {
                 {BOARD_POSTS.map((post) => (
                   <div
                     key={post.id}
-                    className="row-accent grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[13px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
+                    className="row-accent grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[14px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
                   >
                     <Tag variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Tag>
                     <span className="font-medium text-text-primary">{post.title}</span>
-                    <span className="hidden font-mono text-[11.5px] text-text-muted sm:block">{post.date}</span>
+                    <span className="hidden font-mono text-[12.5px] text-text-muted sm:block">{post.date}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <h3 className="mb-4 text-[17px] font-bold text-text-primary">문의 남기기</h3>
+              <h3 className="mb-4 text-[18px] font-bold text-text-primary">문의 남기기</h3>
               <InquiryForm />
             </div>
           </div>

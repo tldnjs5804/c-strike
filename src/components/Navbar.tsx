@@ -50,7 +50,7 @@ export default function Navbar() {
               key={item.label}
               to={item.href}
               onClick={handleAnchor(item.href)}
-              className="rounded-md px-4 py-2.5 text-[14.5px] font-medium text-text-secondary transition-colors hover:bg-bg-surface-alt hover:text-text-primary"
+              className="rounded-md px-4 py-2.5 text-[15px] font-medium text-text-secondary transition-colors hover:bg-bg-surface-alt hover:text-text-primary"
             >
               {item.label}
             </Link>

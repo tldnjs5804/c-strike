@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="reveal mb-3.5 flex items-center gap-2.5 font-mono text-[12.5px] font-semibold uppercase tracking-[0.14em] text-defend">
+    <div className="reveal mb-3.5 flex items-center gap-2.5 font-mono text-[13px] font-semibold uppercase tracking-[0.14em] text-defend">
       <span className="h-[7px] w-[7px] shrink-0 animate-blink rounded-full bg-defend shadow-[0_0_8px_rgba(45,227,200,0.35)]" />
       {children}
     </div>
@@ -27,7 +27,7 @@ export function SectionTitle({ children }: { children: ReactNode }) {
 
 export function SectionSub({ children }: { children: ReactNode }) {
   return (
-    <p className="reveal mb-12 max-w-[640px] text-[16px] leading-relaxed text-text-secondary">
+    <p className="reveal mb-12 max-w-[640px] text-[17px] leading-relaxed text-text-secondary">
       {children}
     </p>
   );

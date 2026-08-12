@@ -19,14 +19,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-text-secondary">
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-text-secondary">
           <Link className="transition-colors hover:text-defend" to="/#about">대회 소개</Link>
           <Link className="transition-colors hover:text-defend" to="/#results">운영 성과</Link>
           <Link className="transition-colors hover:text-defend" to="/#join">참가 안내</Link>
           <Link className="transition-colors hover:text-defend" to="/#contact">문의하기</Link>
         </nav>
 
-        <p className="font-mono text-[12px] text-text-muted">
+        <p className="font-mono text-[13px] text-text-muted">
           © {EVENT.year} {EVENT.name}. 청주대학교.
         </p>
       </div>
