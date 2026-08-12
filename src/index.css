@@ -9,7 +9,8 @@
 @theme {
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Noto Sans KR", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, "Pretendard Variable",
+    Pretendard, monospace;
 
   --color-bg-base: #0b0e14;
   --color-bg-surface: #10141f;
