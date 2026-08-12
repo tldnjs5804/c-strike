@@ -17,18 +17,18 @@ export default function SubpageHero({
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
         <Link
           to="/"
-          className="mb-5 inline-flex items-center gap-1.5 font-mono text-[12.5px] text-text-muted transition-colors hover:text-defend"
+          className="mb-5 inline-flex items-center gap-1.5 font-mono text-[13px] text-text-muted transition-colors hover:text-defend"
         >
           ← 홈으로
         </Link>
         {eyebrow && (
-          <div className="mb-3 flex items-center gap-2.5 font-mono text-[12.5px] font-semibold uppercase tracking-[0.14em] text-defend">
+          <div className="mb-3 flex items-center gap-2.5 font-mono text-[13px] font-semibold uppercase tracking-[0.14em] text-defend">
             <span className="h-[7px] w-[7px] shrink-0 animate-blink rounded-full bg-defend shadow-[0_0_8px_rgba(45,227,200,0.35)]" />
             {eyebrow}
           </div>
         )}
         <h1 className="mb-3.5 text-[clamp(26px,3.4vw,36px)] font-extrabold text-text-primary">{title}</h1>
-        {desc && <p className="max-w-[560px] text-[15px] text-text-secondary">{desc}</p>}
+        {desc && <p className="max-w-[560px] text-[16px] text-text-secondary">{desc}</p>}
         {children}
       </div>
     </header>

@@ -17,9 +17,9 @@ export default function Apply() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[560px] px-6 sm:px-8">
           <div className="rounded-[14px] border border-border bg-bg-card p-7 sm:p-9">
-            <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wide text-defend">Google Form</p>
-            <h3 className="mb-3 text-[19px] font-bold text-text-primary">신청은 구글 폼으로 받습니다</h3>
-            <p className="mb-6 text-[14px] leading-relaxed text-text-secondary">
+            <p className="mb-1.5 font-mono text-[12px] uppercase tracking-wide text-defend">Google Form</p>
+            <h3 className="mb-3 text-[20px] font-bold text-text-primary">신청은 구글 폼으로 받습니다</h3>
+            <p className="mb-6 text-[15px] leading-relaxed text-text-secondary">
               개인정보는 저희 사이트가 아닌 구글 폼을 통해 안전하게 수집됩니다. 아래 정보를 미리 준비해두시면
               빠르게 작성하실 수 있어요.
             </p>
@@ -28,7 +28,7 @@ export default function Apply() {
               {CHECKLIST.map((item) => (
                 <li
                   key={item}
-                  className="rounded-full border border-border-strong bg-bg-surface px-3 py-1.5 font-mono text-[12px] text-text-secondary"
+                  className="rounded-full border border-border-strong bg-bg-surface px-3 py-1.5 font-mono text-[13px] text-text-secondary"
                 >
                   {item}
                 </li>
@@ -40,15 +40,15 @@ export default function Apply() {
                 href={GOOGLE_FORM_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[14.5px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
+                className="group flex w-full items-center justify-center gap-2 rounded-lg bg-attack px-7 py-[15px] font-mono text-[15px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-attack-dark hover:shadow-[0_0_28px_rgba(255,70,85,0.35)]"
               >
                 구글 폼으로 신청하기
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
             ) : (
               <div className="flex w-full flex-col items-center gap-2 rounded-lg border border-dashed border-border-strong px-7 py-[15px] text-center">
-                <span className="font-mono text-[13.5px] font-semibold text-text-muted">신청 폼 준비 중입니다</span>
-                <span className="text-[12.5px] text-text-muted">모집이 시작되면 이 자리에 구글 폼 링크가 열립니다.</span>
+                <span className="font-mono text-[14px] font-semibold text-text-muted">신청 폼 준비 중입니다</span>
+                <span className="text-[13px] text-text-muted">모집이 시작되면 이 자리에 구글 폼 링크가 열립니다.</span>
               </div>
             )}
           </div>
