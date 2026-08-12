@@ -20,6 +20,9 @@ import CountUp from "../components/CountUp";
 import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
+import { IconChat, IconCrosshair, IconCube, IconCup, IconFlag, IconNetwork } from "../components/Icons";
+
+const RULE_ICONS = [IconCrosshair, IconNetwork, IconCube, IconFlag, IconChat];
 
 export default function Home() {
   const { hash } = useLocation();
@@ -108,8 +111,8 @@ export default function Home() {
           <Eyebrow>BRIEFING · 대회 소개</Eyebrow>
           <SectionTitle>대회가 만드는 것</SectionTitle>
           <SectionSub>
-            단순 문제풀이(Jeopardy)를 넘어선 실전형 공격·방어(Attack-Defense) 대회. 실제 침해 대응 환경을 모사해
-            진짜 실무형 보안 인재를 발굴합니다.
+            단순 문제풀이(Jeopardy)를 넘어선 <b className="text-text-primary">실전형 공격·방어(Attack-Defense)</b> 대회.
+            실제 침해 대응 환경을 모사해 진짜 실무형 보안 인재를 발굴합니다.
           </SectionSub>
 
           <div className="reveal stagger-children mb-16 flex flex-col gap-3.5">
@@ -133,14 +136,22 @@ export default function Home() {
 
           <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">세부 운영 정보</h3>
           <div className="reveal stagger-children mb-16 flex flex-col divide-y divide-border rounded-[10px] border border-border bg-bg-card">
-            {RULES.map((r) => (
-              <div key={r.term} className="flex flex-col gap-1.5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-8 sm:px-7">
-                <span className="w-full shrink-0 font-mono text-[12px] font-bold uppercase tracking-wide text-defend sm:w-[124px]">
-                  {r.term}
-                </span>
-                <p className="text-[15px] leading-relaxed text-text-primary">{r.value}</p>
-              </div>
-            ))}
+            {RULES.map((r, i) => {
+              const Icon = RULE_ICONS[i];
+              return (
+                <div key={r.term} className="flex items-start gap-4 px-5 py-4 sm:items-center sm:gap-6 sm:px-7">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
+                    <Icon className="h-[18px] w-[18px]" />
+                  </span>
+                  <div className="flex flex-col gap-1 sm:flex-row sm:flex-1 sm:items-baseline sm:gap-8">
+                    <span className="w-full shrink-0 font-mono text-[12px] font-bold uppercase tracking-wide text-text-muted sm:w-[108px]">
+                      {r.term}
+                    </span>
+                    <p className="text-[15px] leading-relaxed text-text-primary">{r.value}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">공략해야 할 취약점</h3>
@@ -154,7 +165,8 @@ export default function Home() {
               ))}
             </div>
             <p className="reveal rounded-lg border border-border bg-bg-surface px-5 py-4 text-[14px] leading-relaxed text-text-secondary">
-              {TARGETS_NOTE}
+              <b className="text-text-primary">{TARGETS_NOTE.lead}</b>
+              {TARGETS_NOTE.rest}
             </p>
           </div>
 
@@ -166,9 +178,9 @@ export default function Home() {
               <div>
                 <p className="mb-2 font-mono text-[12.5px] font-semibold uppercase tracking-wide text-amber">BONUS ZONE</p>
                 <h3 className="mb-3 text-[24px] font-bold text-text-primary">보너스 구간</h3>
-                <p className="text-[15px] leading-relaxed text-text-primary">
-                  A/D 서비스와 별개로 모든 팀이 접근 가능한 공용 Jeopardy 구역. 공방 소강상태 시 몰입도를 유지하고
-                  팀 전략 다양성을 부여합니다.
+                <p className="text-[15px] leading-relaxed text-text-secondary">
+                  A/D 서비스와 별개로 <b className="text-text-primary">모든 팀이 접근 가능한 공용 Jeopardy 구역</b>.
+                  공방 소강상태 시 몰입도를 유지하고 팀 전략 다양성을 부여합니다.
                 </p>
               </div>
               <div className="reveal stagger-children flex flex-col gap-3.5">
@@ -190,8 +202,9 @@ export default function Home() {
           <Eyebrow>AFTER ACTION REPORT · 운영 성과</Eyebrow>
           <SectionTitle>지난 대회는 이랬습니다</SectionTitle>
           <SectionSub>
-            CJU C-Strike 사이버공격방어대회 · 2026년 6월 22일 진행. 처음 참가하는 분들이 신뢰하고 신청할 수 있도록
-            지난 대회 결과를 그대로 공개합니다.
+            CJU C-Strike 사이버공격방어대회 · 2026년 6월 22일 진행.{" "}
+            <b className="text-text-primary">처음 참가하는 분들이 신뢰하고 신청할 수 있도록</b> 지난 대회 결과를
+            그대로 공개합니다.
           </SectionSub>
 
           <div className="reveal stagger-children mb-12 grid grid-cols-1 overflow-hidden rounded-xl border border-border sm:grid-cols-2 lg:grid-cols-4">
@@ -267,7 +280,9 @@ export default function Home() {
             </Card>
 
             <Card>
-              <p className="mb-2.5 font-mono text-[12px] font-bold uppercase tracking-wide text-attack">Amenities</p>
+              <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg border border-attack/30 bg-attack/10 text-attack">
+                <IconCup className="h-5 w-5" />
+              </div>
               <h3 className="mb-2.5 text-[18px] font-bold text-text-primary">참가자 편의</h3>
               <ul className="flex flex-col gap-1.5">
                 {AMENITIES.map((a) => (
@@ -308,7 +323,8 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap items-center justify-between gap-5 border-t border-border pt-6">
               <p className="max-w-[400px] text-[14.5px] text-text-secondary">
-                신청은 구글 폼으로 받습니다. 이름·학번·연락처·팀 구성 정보를 준비해주세요.
+                신청은 <b className="text-text-primary">구글 폼</b>으로 받습니다. 이름·학번·연락처·팀 구성 정보를
+                준비해주세요.
               </p>
               <Link
                 to="/apply"

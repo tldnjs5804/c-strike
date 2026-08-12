@@ -47,8 +47,10 @@ export const TARGETS = [
   { tag: "기타", desc: "네트워크 프로토콜, 암호 취약점 등 선택적 포함" },
 ];
 
-export const TARGETS_NOTE =
-  "취약점팩 5개, 대회 시작 후 0 / 2 / 4 / 6 / 8시간 시점에 전 팀 동시 순차 공개 — 팀별 문제 세트는 다르게, 난이도는 동등하게 구성해 공정성을 확보합니다.";
+export const TARGETS_NOTE = {
+  lead: "팀별 문제 세트는 다르게, 난이도는 동등하게 구성",
+  rest: "해 공정성을 확보합니다. 공개 일정은 위 타임라인을 참고하세요.",
+};
 
 export const BONUS_STATS = [
   { value: "5~10개", label: "혼합 문제 수 (웹·포렌식·암호학)" },
