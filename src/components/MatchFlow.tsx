@@ -1,4 +1,4 @@
-import { MATCH_FLOW, VULN_RELEASE_HOURS, VULN_RELEASE_SCHEDULE } from "../data/content";
+import { MATCH_FLOW, VULN_RELEASE_HOURS } from "../data/content";
 import { Crosshair, Server, Shield, Trophy } from "lucide-react";
 import { Badge } from "./ui/badge";
 
@@ -58,30 +58,10 @@ export default function MatchFlow() {
         취약점팩 공개 시점
       </p>
 
-      <p className="mx-auto mt-8 max-w-[480px] text-center text-[15px] leading-relaxed text-text-secondary">
+      <p className="mx-auto mt-8 max-w-[520px] text-center text-[15px] leading-relaxed text-text-secondary">
         대회가 시작되면 모든 팀이 <b className="text-text-primary">내 서버는 방어, 상대 서버는 공격</b>을 동시에 계속
-        반복합니다.
+        반복하며, <b className="text-text-primary">취약점팩 5개</b>가 위 시점마다 전 팀에게 동시에 공개됩니다.
       </p>
-
-      {/* 취약점 공개 일정 — 축 위 점이 아니라 그냥 읽으면 되는 라벨 나열 */}
-      <div className="mx-auto mt-6 max-w-[560px] rounded-lg border border-defend/25 bg-defend/[0.05] px-4 py-4 sm:px-6">
-        <p className="mb-3 text-center font-mono text-[12px] font-bold uppercase tracking-wide text-defend">
-          취약점팩 공개 일정
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2">
-          {VULN_RELEASE_SCHEDULE.map((label, i) => (
-            <span key={label} className="flex items-center gap-1.5">
-              <Badge variant="defend" className="bg-bg-card px-3 py-1.5 text-[13.5px] font-bold">
-                {label}
-              </Badge>
-              {i < VULN_RELEASE_SCHEDULE.length - 1 && <span className="text-text-secondary">→</span>}
-            </span>
-          ))}
-        </div>
-        <p className="mt-3 text-center text-[13px] leading-relaxed text-text-secondary">
-          총 5개 취약점팩이 이 시점마다 전 팀에게 동시에 순차 공개됩니다.
-        </p>
-      </div>
     </div>
   );
 }
