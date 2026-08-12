@@ -132,16 +132,13 @@ export default function Home() {
           </div>
 
           <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">세부 운영 정보</h3>
-          <div className="reveal stagger-children mb-16 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="reveal stagger-children mb-16 flex flex-col divide-y divide-border rounded-[10px] border border-border bg-bg-card">
             {RULES.map((r) => (
-              <div key={r.term} className="flex items-start gap-3.5 rounded-[10px] border border-border bg-bg-card p-5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg-surface-alt text-[18px]">
-                  {r.icon}
+              <div key={r.term} className="flex flex-col gap-1.5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-8 sm:px-7">
+                <span className="w-full shrink-0 font-mono text-[12px] font-bold uppercase tracking-wide text-defend sm:w-[124px]">
+                  {r.term}
                 </span>
-                <div>
-                  <p className="mb-1 font-mono text-[12px] font-bold uppercase tracking-wide text-text-muted">{r.term}</p>
-                  <p className="text-[15px] leading-relaxed text-text-primary">{r.value}</p>
-                </div>
+                <p className="text-[15px] leading-relaxed text-text-primary">{r.value}</p>
               </div>
             ))}
           </div>
@@ -224,7 +221,7 @@ export default function Home() {
                 {LEADERBOARD.map((row) => (
                   <div
                     key={row.team}
-                    className={`row-accent grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 pl-3 text-[15px] last:border-none sm:grid-cols-[48px_1fr_100px_120px] ${
+                    className={`grid grid-cols-[36px_1fr_70px] items-center gap-3 border-b border-border py-3 pl-3 text-[15px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[48px_1fr_100px_120px] ${
                       row.rank === 1 ? "rounded-lg bg-gradient-to-r from-amber/10 to-transparent" : ""
                     }`}
                   >
@@ -270,9 +267,7 @@ export default function Home() {
             </Card>
 
             <Card>
-              <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg bg-attack/10 text-[16px] text-attack">
-                ☕
-              </div>
+              <p className="mb-2.5 font-mono text-[12px] font-bold uppercase tracking-wide text-attack">Amenities</p>
               <h3 className="mb-2.5 text-[18px] font-bold text-text-primary">참가자 편의</h3>
               <ul className="flex flex-col gap-1.5">
                 {AMENITIES.map((a) => (
@@ -351,7 +346,7 @@ export default function Home() {
                 {BOARD_POSTS.map((post) => (
                   <div
                     key={post.id}
-                    className="row-accent grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[14px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
+                    className="grid grid-cols-[76px_1fr] items-center gap-3 border-b border-border py-3.5 pl-3.5 pr-4 text-[14px] transition-colors last:border-none hover:bg-bg-surface-alt sm:grid-cols-[100px_1fr_80px]"
                   >
                     <Tag variant={post.status === "답변완료" ? "defend" : "amber"}>{post.status}</Tag>
                     <span className="font-medium text-text-primary">{post.title}</span>

@@ -171,24 +171,6 @@ body {
   transition: transform 0.1s linear;
 }
 
-/* row accent — a colored rule that slides in from the left on hover */
-.row-accent {
-  position: relative;
-  transition: background-color 0.15s ease;
-}
-.row-accent::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 2px;
-  background: var(--color-defend);
-  transform: scaleY(0);
-  transition: transform 0.2s ease;
-}
-.row-accent:hover::before {
-  transform: scaleY(1);
-}
-
 /* hero key-visual: network nodes pulse, attack/defend paths animate their dashes */
 .hv-node {
   transform-box: fill-box;

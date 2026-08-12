@@ -34,11 +34,11 @@ export const PURPOSES = [
 ];
 
 export const RULES = [
-  { icon: "⚔️", term: "방식", value: "Attack & Defense" },
-  { icon: "🌐", term: "네트워크", value: "OpenVPN 기반 대회 전용 내부망, 참가자망·운영망 독립 운영" },
-  { icon: "📦", term: "팀 환경", value: "컨테이너 기반 독립 운영, 원클릭 리셋 지원" },
-  { icon: "🚩", term: "채점", value: "플래그 자동 생성·주입, 공격/피공격/시각/취약점 정보로 추적·부정행위 검증" },
-  { icon: "💬", term: "소통 채널", value: "Discord 채널·스레드로 공지·장애·이의제기 접수, 티켓 시스템 연동" },
+  { term: "방식", value: "Attack & Defense" },
+  { term: "네트워크", value: "OpenVPN 기반 대회 전용 내부망, 참가자망·운영망 독립 운영" },
+  { term: "팀 환경", value: "컨테이너 기반 독립 운영, 원클릭 리셋 지원" },
+  { term: "채점", value: "플래그 자동 생성·주입, 공격/피공격/시각/취약점 정보로 추적·부정행위 검증" },
+  { term: "소통 채널", value: "Discord 채널·스레드로 공지·장애·이의제기 접수, 티켓 시스템 연동" },
 ];
 
 export const TARGETS = [
