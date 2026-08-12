@@ -1,15 +1,18 @@
 import { MATCH_FLOW, VULN_RELEASE_HOURS, VULN_RELEASE_SCHEDULE } from "../data/content";
+import { IconCrosshair, IconServer, IconShield, IconTrophy } from "./Icons";
 
 export default function MatchFlow() {
   return (
     <div className="reveal rounded-[14px] border border-border bg-bg-card px-5 py-10 sm:px-10">
       {/* centered DEFEND / ATTACK badge, floating above the timeline */}
       <div className="mb-8 flex flex-wrap items-center justify-center gap-2.5">
-        <span className="rounded-full border border-defend/40 bg-defend/10 px-3 py-1 font-mono text-[13px] font-bold text-defend">
+        <span className="flex items-center gap-1.5 rounded-full border border-defend/40 bg-defend/10 px-3 py-1 font-mono text-[13px] font-bold text-defend">
+          <IconShield className="h-[13px] w-[13px]" />
           DEFEND
         </span>
         <span className="font-mono text-[15px] text-text-muted">⇄</span>
-        <span className="rounded-full border border-attack/40 bg-attack/10 px-3 py-1 font-mono text-[13px] font-bold text-attack">
+        <span className="flex items-center gap-1.5 rounded-full border border-attack/40 bg-attack/10 px-3 py-1 font-mono text-[13px] font-bold text-attack">
+          <IconCrosshair className="h-[13px] w-[13px]" />
           ATTACK
         </span>
         <span className="ml-1 font-mono text-[12px] font-bold uppercase tracking-wide text-amber">대회 시간 내내 반복</span>
@@ -23,7 +26,9 @@ export default function MatchFlow() {
         />
 
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
-          <span className="h-4 w-4 rounded-full border-2 border-defend bg-bg-card sm:h-[18px] sm:w-[18px]" />
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-defend bg-bg-card text-defend sm:h-10 sm:w-10">
+            <IconServer className="h-[18px] w-[18px]" />
+          </span>
           <span className="text-[12.5px] font-bold leading-tight text-text-primary sm:text-[14px]">
             {MATCH_FLOW.before.title}
           </span>
@@ -40,7 +45,9 @@ export default function MatchFlow() {
         </div>
 
         <div className="relative z-10 flex w-[86px] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[120px]">
-          <span className="h-4 w-4 rounded-full border-2 border-attack bg-attack sm:h-[18px] sm:w-[18px]" />
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-attack bg-attack text-white sm:h-10 sm:w-10">
+            <IconTrophy className="h-[18px] w-[18px]" />
+          </span>
           <span className="text-[12.5px] font-bold leading-tight text-text-primary sm:text-[14px]">
             {MATCH_FLOW.after.title}
           </span>
