@@ -16,7 +16,7 @@ export default function MatchFlow() {
           <Crosshair className="h-[13px] w-[13px]" strokeWidth={2} />
           ATTACK
         </Badge>
-        <span className="ml-1 font-mono text-[12px] font-bold uppercase tracking-wide text-amber">대회 시간 내내 반복</span>
+        <span className="ml-1 font-mono text-[12px] font-bold uppercase tracking-wide text-defend">대회 시간 내내 반복</span>
       </div>
 
       {/* one simple line: 팀 편성 -> 채점·순위, DEFEND/ATTACK 구간이 그 사이 전체임을 색으로만 표시 */}
@@ -39,8 +39,8 @@ export default function MatchFlow() {
         <div className="relative z-10 flex flex-1 items-center justify-around px-1.5 sm:px-3">
           {VULN_RELEASE_HOURS.map((h) => (
             <div key={h} className="flex flex-col items-center gap-1.5 pt-[3px]">
-              <span className="h-2.5 w-2.5 rounded-full border-2 border-amber bg-bg-card" />
-              <span className="font-mono text-[11px] font-bold text-amber sm:text-[11.5px]">{h}h</span>
+              <span className="h-2.5 w-2.5 rounded-full border-2 border-defend bg-bg-card" />
+              <span className="font-mono text-[11px] font-bold text-defend sm:text-[11.5px]">{h}h</span>
             </div>
           ))}
         </div>
@@ -64,14 +64,14 @@ export default function MatchFlow() {
       </p>
 
       {/* 취약점 공개 일정 — 축 위 점이 아니라 그냥 읽으면 되는 라벨 나열 */}
-      <div className="mx-auto mt-6 max-w-[560px] rounded-lg border border-amber/25 bg-amber/[0.05] px-4 py-4 sm:px-6">
-        <p className="mb-3 text-center font-mono text-[12px] font-bold uppercase tracking-wide text-amber">
+      <div className="mx-auto mt-6 max-w-[560px] rounded-lg border border-defend/25 bg-defend/[0.05] px-4 py-4 sm:px-6">
+        <p className="mb-3 text-center font-mono text-[12px] font-bold uppercase tracking-wide text-defend">
           취약점팩 공개 일정
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2">
           {VULN_RELEASE_SCHEDULE.map((label, i) => (
             <span key={label} className="flex items-center gap-1.5">
-              <Badge variant="amber" className="bg-bg-card px-3 py-1.5 text-[13.5px] font-bold">
+              <Badge variant="defend" className="bg-bg-card px-3 py-1.5 text-[13.5px] font-bold">
                 {label}
               </Badge>
               {i < VULN_RELEASE_SCHEDULE.length - 1 && <span className="text-text-secondary">→</span>}
