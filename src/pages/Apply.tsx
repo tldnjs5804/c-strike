@@ -47,7 +47,7 @@ export default function Apply() {
               </a>
             ) : (
               <div className="flex w-full flex-col items-center gap-2 rounded-lg border border-dashed border-border-strong px-7 py-[15px] text-center">
-                <span className="font-mono text-[14px] font-semibold text-text-muted">신청 폼 준비 중입니다</span>
+                <span className="font-mono text-[14px] font-semibold text-text-secondary">신청 폼 준비 중입니다</span>
                 <span className="text-[13px] text-text-muted">모집이 시작되면 이 자리에 구글 폼 링크가 열립니다.</span>
               </div>
             )}

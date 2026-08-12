@@ -20,9 +20,9 @@ import CountUp from "../components/CountUp";
 import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
-import { IconChat, IconCrosshair, IconCube, IconCup, IconFlag, IconNetwork } from "../components/Icons";
+import { Box, Coffee, Crosshair, Flag, MessageSquare, Network } from "lucide-react";
 
-const RULE_ICONS = [IconCrosshair, IconNetwork, IconCube, IconFlag, IconChat];
+const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
 
 export default function Home() {
   const { hash } = useLocation();
@@ -141,10 +141,10 @@ export default function Home() {
               return (
                 <div key={r.term} className="flex items-start gap-4 px-5 py-4 sm:items-center sm:gap-6 sm:px-7">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
-                    <Icon className="h-[18px] w-[18px]" />
+                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
                   </span>
                   <div className="flex flex-col gap-1 sm:flex-row sm:flex-1 sm:items-baseline sm:gap-8">
-                    <span className="w-full shrink-0 font-mono text-[12px] font-bold uppercase tracking-wide text-text-muted sm:w-[108px]">
+                    <span className="w-full shrink-0 font-mono text-[12px] font-bold uppercase tracking-wide text-text-secondary sm:w-[108px]">
                       {r.term}
                     </span>
                     <p className="text-[15px] leading-relaxed text-text-primary">{r.value}</p>
@@ -224,7 +224,7 @@ export default function Home() {
           <h3 className="reveal mb-5 text-[18px] font-bold text-text-primary">최종 순위</h3>
           <div className="reveal mb-12 rounded-[14px] border border-border bg-bg-card p-6 sm:p-8">
             <div className="flex flex-col">
-              <div className="grid grid-cols-[36px_1fr_70px] gap-3 pb-2.5 font-mono text-[11.5px] uppercase tracking-wide text-text-muted sm:grid-cols-[48px_1fr_100px_120px]">
+              <div className="grid grid-cols-[36px_1fr_70px] gap-3 pb-2.5 font-mono text-[11.5px] uppercase tracking-wide text-text-secondary sm:grid-cols-[48px_1fr_100px_120px]">
                 <span>순위</span>
                 <span>팀</span>
                 <span>점수</span>
@@ -281,7 +281,7 @@ export default function Home() {
 
             <Card>
               <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg border border-attack/30 bg-attack/10 text-attack">
-                <IconCup className="h-5 w-5" />
+                <Coffee className="h-5 w-5" strokeWidth={1.75} />
               </div>
               <h3 className="mb-2.5 text-[18px] font-bold text-text-primary">참가자 편의</h3>
               <ul className="flex flex-col gap-1.5">
@@ -308,7 +308,7 @@ export default function Home() {
             <div className="reveal stagger-children mb-7 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {JOIN_ITEMS.map((item) => (
                 <div key={item.label} className="flex flex-col gap-2 rounded-lg border border-border bg-bg-surface p-4">
-                  <span className="font-mono text-[11.5px] uppercase tracking-wide text-text-muted">{item.label}</span>
+                  <span className="font-mono text-[11.5px] uppercase tracking-wide text-text-secondary">{item.label}</span>
                   <span
                     className={
                       item.pending
@@ -354,7 +354,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="reveal stagger-children overflow-hidden rounded-xl border border-border bg-bg-card">
-                <div className="hidden grid-cols-[100px_1fr_80px] gap-3 border-b border-border bg-bg-surface px-4 py-3 font-mono text-[11px] uppercase tracking-wide text-text-muted sm:grid">
+                <div className="hidden grid-cols-[100px_1fr_80px] gap-3 border-b border-border bg-bg-surface px-4 py-3 font-mono text-[11px] uppercase tracking-wide text-text-secondary sm:grid">
                   <span>상태</span>
                   <span>제목</span>
                   <span>작성일</span>
