@@ -104,7 +104,7 @@ export default function Home() {
       {/* ---------- ABOUT ---------- */}
       <section id="about" className="scroll-mt-[68px] border-b border-border py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
-          <Eyebrow>BRIEFING · 대회 소개</Eyebrow>
+          <Eyebrow>대회 소개</Eyebrow>
           <SectionTitle>대회가 만드는 것</SectionTitle>
           <SectionSub>
             단순 문제풀이(Jeopardy)를 넘어선 <b className="text-text-primary">실전형 공격·방어(Attack-Defense)</b> 대회.
@@ -172,7 +172,6 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
               <div>
-                <p className="mb-2 font-mono text-[12.5px] font-semibold uppercase tracking-wide text-defend">BONUS ZONE</p>
                 <h3 className="mb-3 text-[24px] font-bold text-text-primary">보너스 구간</h3>
                 <p className="text-[15px] leading-relaxed text-text-secondary">
                   A/D 서비스와 별개로 <b className="text-text-primary">모든 팀이 접근 가능한 공용 Jeopardy 구역</b>.
@@ -195,7 +194,7 @@ export default function Home() {
       {/* ---------- RESULTS ---------- */}
       <section id="results" className="scroll-mt-[68px] border-b border-border bg-bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
-          <Eyebrow>AFTER ACTION REPORT · 운영 성과</Eyebrow>
+          <Eyebrow>운영 성과</Eyebrow>
           <SectionTitle>지난 대회는 이랬습니다</SectionTitle>
           <SectionSub>
             CJU C-Strike 사이버공격방어대회 · 2026년 6월 22일 진행.{" "}
@@ -298,7 +297,7 @@ export default function Home() {
       {/* ---------- JOIN ---------- */}
       <section id="join" className="scroll-mt-[68px] border-b border-border py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
-          <Eyebrow>MISSION BRIEF · 참가 안내</Eyebrow>
+          <Eyebrow>참가 안내</Eyebrow>
           <SectionTitle>참가 전 확인할 것</SectionTitle>
           <SectionSub>9월 · 11월 대회 예정 — 상세 일정과 조건은 확정되는 대로 공개합니다.</SectionSub>
 
@@ -339,7 +338,7 @@ export default function Home() {
       {/* ---------- CONTACT ---------- */}
       <section id="contact" className="scroll-mt-[68px] bg-bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
-          <Eyebrow>SUPPORT · 문의하기</Eyebrow>
+          <Eyebrow>문의하기</Eyebrow>
           <SectionTitle>문의하기</SectionTitle>
           <SectionSub>운영 관련 공지, 장애, 이의제기는 Discord 채널과 아래 문의 게시판을 통해 접수합니다.</SectionSub>
 

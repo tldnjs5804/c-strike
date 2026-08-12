@@ -12,7 +12,6 @@ export default function Apply() {
   return (
     <>
       <SubpageHero
-        eyebrow="APPLICATION"
         title="참가 신청"
         desc="9월 · 11월 대회 참가 신청서입니다. 정식 모집이 열리면 접수가 시작되며, 세부 일정은 확정되는 대로 안내드립니다."
       />
@@ -20,7 +19,6 @@ export default function Apply() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[560px] px-6 sm:px-8">
           <div className="rounded-[14px] border border-border bg-bg-card p-7 sm:p-9">
-            <p className="mb-1.5 font-mono text-[12px] uppercase tracking-wide text-defend">Google Form</p>
             <h3 className="mb-3 text-[20px] font-bold text-text-primary">신청은 구글 폼으로 받습니다</h3>
             <p className="mb-6 text-[15px] leading-relaxed text-text-secondary">
               개인정보는 저희 사이트가 아닌 구글 폼을 통해 안전하게 수집됩니다. 아래 정보를 미리 준비해두시면
