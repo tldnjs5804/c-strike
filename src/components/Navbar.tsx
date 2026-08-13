@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <nav className="fixed inset-x-0 top-0 z-[100] border-b border-border bg-bg-base/95">
       <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between px-6 sm:px-8">
-        <Link to="/" className="flex items-center gap-2.5 font-mono text-[17px] font-bold tracking-tight">
+        <Link to="/" className="flex items-center gap-2.5 font-mono text-[18.5px] font-bold tracking-tight">
           <span
             className="flex h-[26px] w-[26px] shrink-0"
             style={{
@@ -51,7 +51,7 @@ export default function Navbar() {
               key={item.label}
               to={item.href}
               onClick={handleAnchor(item.href)}
-              className="rounded-md px-4 py-2.5 text-[15px] font-medium text-text-secondary transition-colors hover:bg-bg-surface-alt hover:text-text-primary"
+              className="rounded-md px-4 py-2.5 text-[16px] font-medium text-text-secondary transition-colors hover:bg-bg-surface-alt hover:text-text-primary"
             >
               {item.label}
             </Link>
@@ -81,7 +81,7 @@ export default function Navbar() {
               key={item.label}
               to={item.href}
               onClick={handleAnchor(item.href)}
-              className="block border-b border-border py-3.5 text-[15px] font-medium text-text-primary transition-colors hover:text-defend"
+              className="block border-b border-border py-3.5 text-[16px] font-medium text-text-primary transition-colors hover:text-defend"
             >
               {item.label}
             </Link>

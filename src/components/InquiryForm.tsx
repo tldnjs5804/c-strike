@@ -21,8 +21,8 @@ export default function InquiryForm() {
         <div className="mb-1 flex h-12 w-12 items-center justify-center rounded-full border border-defend/35 bg-defend/10 text-defend [animation:pop-in_0.4s_cubic-bezier(0.16,1,0.3,1)_both]">
           <Check className="h-6 w-6" strokeWidth={2.5} />
         </div>
-        <h4 className="text-[17px] font-bold text-text-primary">문의가 등록되었습니다</h4>
-        <p className="max-w-[320px] text-[14px] text-text-secondary">
+        <h4 className="text-[18.5px] font-bold text-text-primary">문의가 등록되었습니다</h4>
+        <p className="max-w-[320px] text-[15px] text-text-secondary">
           운영진 확인 후 답변이 등록되며, 위 문의 게시판에서 답변 상태를 확인하실 수 있습니다.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default function InquiryForm() {
         <Textarea id={`${idPrefix}-body`} required rows={4} placeholder="문의하실 내용을 자세히 적어주세요." />
       </div>
 
-      <label className="flex items-center gap-2.5 text-[13.5px] text-text-secondary" htmlFor={`${idPrefix}-consent`}>
+      <label className="flex items-center gap-2.5 text-[14.5px] text-text-secondary" htmlFor={`${idPrefix}-consent`}>
         <Checkbox id={`${idPrefix}-consent`} required />
         개인정보 수집·이용에 동의합니다. <span className="text-attack">*</span>
       </label>

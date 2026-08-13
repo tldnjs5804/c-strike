@@ -19,8 +19,8 @@ export default function Apply() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-[560px] px-6 sm:px-8">
           <div className="rounded-[14px] border border-border bg-bg-card p-7 sm:p-9">
-            <h3 className="mb-3 text-[20px] font-bold text-text-primary">신청은 구글 폼으로 받습니다</h3>
-            <p className="mb-6 text-[15px] leading-relaxed text-text-secondary">
+            <h3 className="mb-3 text-[21.5px] font-bold text-text-primary">신청은 구글 폼으로 받습니다</h3>
+            <p className="mb-6 text-[16px] leading-relaxed text-text-secondary">
               개인정보는 저희 사이트가 아닌 구글 폼을 통해 안전하게 수집됩니다. 아래 정보를 미리 준비해두시면
               빠르게 작성하실 수 있어요.
             </p>
@@ -28,7 +28,7 @@ export default function Apply() {
             <ul className="mb-7 flex flex-wrap gap-2">
               {CHECKLIST.map((item) => (
                 <li key={item}>
-                  <Badge variant="muted" className="px-3 py-1.5 text-[13px] normal-case text-text-secondary">
+                  <Badge variant="muted" className="px-3 py-1.5 text-[14px] normal-case text-text-secondary">
                     {item}
                   </Badge>
                 </li>
@@ -45,7 +45,7 @@ export default function Apply() {
             ) : (
               <Alert className="text-center">
                 <AlertTitle className="text-text-secondary">신청 폼 준비 중입니다</AlertTitle>
-                <AlertDescription className="text-[13px] text-text-muted">
+                <AlertDescription className="text-[14px] text-text-muted">
                   모집이 시작되면 이 자리에 구글 폼 링크가 열립니다.
                 </AlertDescription>
               </Alert>

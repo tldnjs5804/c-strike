@@ -36,9 +36,9 @@ export default function TerminalLog() {
         <span className="h-[9px] w-[9px] rounded-full bg-bg-surface-alt" />
         <span className="h-[9px] w-[9px] rounded-full bg-bg-surface-alt" />
         <span className="h-[9px] w-[9px] rounded-full bg-bg-surface-alt" />
-        <span className="ml-2 font-mono text-[11.5px] text-text-muted">live · match.log</span>
+        <span className="ml-2 font-mono text-[12.5px] text-text-muted">live · match.log</span>
       </div>
-      <div className="h-[268px] overflow-hidden px-4 py-4 font-mono text-[12.5px] leading-[2.1] text-text-secondary">
+      <div className="h-[268px] overflow-hidden px-4 py-4 font-mono text-[13.5px] leading-[2.1] text-text-secondary">
         <div className="log-scroll">
           <LogLines />
           <LogLines />
