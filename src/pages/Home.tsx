@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       {/* ---------- HERO ---------- */}
-      <header className="relative overflow-hidden border-b border-border pb-16 pt-[128px] sm:pb-24 sm:pt-[160px]">
+      <header className="relative snap-start overflow-hidden border-b border-border pb-16 pt-[128px] sm:pb-24 sm:pt-[160px]">
         <div
           className="pointer-events-none absolute -left-32 -top-40 h-[420px] w-[420px] rounded-full opacity-[0.16] blur-[110px]"
           style={{ background: "var(--color-attack)" }}
@@ -95,7 +95,7 @@ export default function Home() {
       </header>
 
       {/* ---------- ABOUT ---------- */}
-      <section id="about" className="scroll-mt-[68px] border-b border-border py-16 sm:py-20">
+      <section id="about" className="scroll-mt-[68px] snap-start border-b border-border py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <Eyebrow>대회 소개</Eyebrow>
           <SectionTitle>대회가 만드는 것</SectionTitle>
@@ -219,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* ---------- RESULTS ---------- */}
-      <section id="results" className="scroll-mt-[68px] border-b border-border bg-bg-surface py-16 sm:py-20">
+      <section id="results" className="scroll-mt-[68px] snap-start border-b border-border bg-bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <Eyebrow>운영 성과</Eyebrow>
           <SectionTitle>지난 대회는 이랬습니다</SectionTitle>
@@ -322,7 +322,7 @@ export default function Home() {
       </section>
 
       {/* ---------- JOIN ---------- */}
-      <section id="join" className="scroll-mt-[68px] border-b border-border py-16 sm:py-20">
+      <section id="join" className="scroll-mt-[68px] snap-start border-b border-border py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <Eyebrow>참가 안내</Eyebrow>
           <SectionTitle>참가 전 확인할 것</SectionTitle>
@@ -363,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* ---------- CONTACT ---------- */}
-      <section id="contact" className="scroll-mt-[68px] bg-bg-surface py-16 sm:py-20">
+      <section id="contact" className="scroll-mt-[68px] snap-start bg-bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
           <Eyebrow>문의하기</Eyebrow>
           <SectionTitle>문의하기</SectionTitle>
