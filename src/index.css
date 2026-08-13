@@ -69,25 +69,8 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 68px;
+  scroll-behavior: smooth;
   color-scheme: dark;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-html::-webkit-scrollbar {
-  display: none;
-}
-
-/* full-screen snap sections scroll internally when their content overrun the
-   viewport — hide that inner scrollbar too so only the section-dots nav reads
-   as the page's navigation, not a second scroll track */
-.snap-start {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.snap-start::-webkit-scrollbar {
-  display: none;
 }
 
 body {
@@ -221,8 +204,5 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
-  }
-  html {
-    scroll-snap-type: none !important;
   }
 }
