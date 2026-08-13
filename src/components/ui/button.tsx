@@ -16,9 +16,9 @@ const buttonVariants = cva(
         ghost: "text-text-secondary hover:bg-bg-surface-alt hover:text-text-primary",
       },
       size: {
-        default: "px-6 py-3 text-[14.5px]",
-        sm: "px-4 py-2 text-[13px]",
-        lg: "px-7 py-[15px] text-[15px]",
+        default: "px-6 py-3 text-[15.5px]",
+        sm: "px-4 py-2 text-[14px]",
+        lg: "px-7 py-[15px] text-[16px]",
       },
     },
     defaultVariants: {

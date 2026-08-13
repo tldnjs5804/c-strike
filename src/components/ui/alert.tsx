@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-const alertVariants = cva("relative w-full rounded-lg border px-4 py-3.5 text-[13.5px] leading-relaxed", {
+const alertVariants = cva("relative w-full rounded-lg border px-4 py-3.5 text-[14.5px] leading-relaxed", {
   variants: {
     variant: {
       default: "border-border bg-bg-surface text-text-secondary",
@@ -28,7 +28,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       className={cn(
-        "alert-title mb-1 font-mono text-[11.5px] font-bold uppercase tracking-wide",
+        "alert-title mb-1 font-mono text-[12.5px] font-bold uppercase tracking-wide",
         className,
       )}
       {...props}
