@@ -20,12 +20,6 @@ export const MATCH_FLOW = {
 // 취약점팩 공개 일정 — 타임라인 위 시간(h) 눈금으로 표시.
 export const VULN_RELEASE_HOURS = [0, 2, 4, 6, 8];
 
-export const HERO_STATS = [
-  { num: "24", label: "지난 대회 참가자(명)" },
-  { num: "6", label: "참가 팀" },
-  { num: "12", label: "운영 시간" },
-];
-
 export const PURPOSES = [
   "우수 학생 발굴 및 전공 분야 재학생들의 실전형 공격·방어 역량 강화 및 팀 기반 협업 능력 배양",
   "실제 침해 대응 환경을 모사한 Attack-Defense 방식 운영을 통한 실무형 보안 인재 발굴",
@@ -55,6 +49,14 @@ export const BONUS_STATS = [
   { value: "5~10개", label: "혼합 문제 수 (웹·포렌식·암호학)" },
   { value: "20~30%", label: "전체 점수 비중" },
   { value: "동적 배점", label: "먼저 풀수록 고득점, 최저 하한점수 보장" },
+];
+
+// 상금 규모는 스폰서십 확정 전 잠정 수치입니다.
+export const PRIZES = [
+  { tier: "대상", amount: "100만원", winners: "1팀", highlight: true },
+  { tier: "최우수상", amount: "50만원", winners: "1팀", highlight: false },
+  { tier: "우수상", amount: "30만원", winners: "2팀", highlight: false },
+  { tier: "장려상", amount: "10만원", winners: "2팀", highlight: false },
 ];
 
 export const RESULTS_OVERVIEW = [

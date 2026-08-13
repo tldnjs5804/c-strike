@@ -31,14 +31,14 @@ function LogLines() {
 
 export default function TerminalLog() {
   return (
-    <div className="reveal self-start overflow-hidden rounded-[10px] border border-border-strong bg-gradient-to-b from-bg-card to-bg-surface shadow-[0_1px_0_rgba(255,255,255,0.05)_inset,0_30px_70px_-30px_rgba(0,0,0,0.85)]">
-      <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+    <div className="reveal flex h-full min-h-[280px] flex-col overflow-hidden rounded-[10px] border border-border-strong bg-gradient-to-b from-bg-card to-bg-surface shadow-[0_1px_0_rgba(255,255,255,0.05)_inset,0_30px_70px_-30px_rgba(0,0,0,0.85)]">
+      <div className="flex shrink-0 items-center gap-2 border-b border-border px-4 py-3">
         <span className="h-[9px] w-[9px] rounded-full bg-bg-surface-alt" />
         <span className="h-[9px] w-[9px] rounded-full bg-bg-surface-alt" />
         <span className="h-[9px] w-[9px] rounded-full bg-bg-surface-alt" />
         <span className="ml-2 font-mono text-[12.5px] text-text-muted">live · match.log</span>
       </div>
-      <div className="h-[268px] overflow-hidden px-4 py-4 font-mono text-[13.5px] leading-[2.1] text-text-secondary">
+      <div className="min-h-0 flex-1 overflow-hidden px-4 py-4 font-mono text-[13.5px] leading-[2.1] text-text-secondary">
         <div className="log-scroll">
           <LogLines />
           <LogLines />

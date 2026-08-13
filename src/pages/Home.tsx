@@ -5,9 +5,9 @@ import {
   BOARD_POSTS,
   BONUS_STATS,
   EVENT,
-  HERO_STATS,
   JOIN_ITEMS,
   LEADERBOARD,
+  PRIZES,
   PURPOSES,
   RESULTS_OVERVIEW,
   RULES,
@@ -26,7 +26,8 @@ import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
 import TerminalLog from "../components/TerminalLog";
-import { Box, Coffee, Crosshair, Flag, MessageSquare, Network } from "lucide-react";
+import KeyVisual from "../components/KeyVisual";
+import { Box, Coffee, Crosshair, Flag, MessageSquare, Network, Trophy } from "lucide-react";
 
 const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
 
@@ -85,16 +86,9 @@ export default function Home() {
               <span className="font-mono text-[14.5px] text-text-secondary">9월 · 11월 대회 예정</span>
             </div>
 
-            <dl className="flex max-w-[480px] gap-9 border-t border-border pt-7">
-              {HERO_STATS.map((s) => (
-                <div key={s.label}>
-                  <dd className="font-mono text-[27px] font-bold text-text-primary">
-                    <CountUp value={parseInt(s.num, 10)} />
-                  </dd>
-                  <dt className="text-[13px] text-text-muted">{s.label}</dt>
-                </div>
-              ))}
-            </dl>
+            <div className="reveal border-t border-border pt-7">
+              <KeyVisual />
+            </div>
           </div>
 
           <TerminalLog />
@@ -135,15 +129,15 @@ export default function Home() {
             {RULES.map((r, i) => {
               const Icon = RULE_ICONS[i];
               return (
-                <div key={r.term} className="flex items-start gap-4 px-5 py-4 sm:items-center sm:gap-6 sm:px-7">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
-                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                <div key={r.term} className="flex items-start gap-4 px-5 py-5 sm:items-center sm:gap-6 sm:px-7">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
-                  <div className="flex flex-col gap-1 sm:flex-row sm:flex-1 sm:items-baseline sm:gap-8">
-                    <span className="w-full shrink-0 font-mono text-[13px] font-bold uppercase tracking-wide text-text-secondary sm:w-[108px]">
+                  <div className="flex flex-col gap-1.5 sm:flex-row sm:flex-1 sm:items-baseline sm:gap-8">
+                    <span className="w-full shrink-0 text-[19px] font-extrabold text-defend sm:w-[132px]">
                       {r.term}
                     </span>
-                    <p className="text-[16px] leading-relaxed text-text-primary">{r.value}</p>
+                    <p className="text-[15px] leading-relaxed text-text-secondary">{r.value}</p>
                   </div>
                 </div>
               );
@@ -187,6 +181,40 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+
+          <div className="reveal mt-16 rounded-[14px] border border-attack/25 bg-bg-card p-8 sm:p-10">
+            <div className="mb-7 flex items-center gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-attack/30 bg-attack/10 text-attack">
+                <Trophy className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <h3 className="text-[24px] font-bold text-text-primary">대회 상금</h3>
+            </div>
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent">
+                  <TableHead>구분</TableHead>
+                  <TableHead>상금</TableHead>
+                  <TableHead className="text-right sm:text-left">인원</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody className="reveal stagger-children">
+                {PRIZES.map((p) => (
+                  <TableRow key={p.tier} className={p.highlight ? "bg-gradient-to-r from-attack/10 to-transparent" : ""}>
+                    <TableCell className={`font-semibold ${p.highlight ? "text-[16px] text-attack" : "text-text-primary"}`}>
+                      {p.tier}
+                    </TableCell>
+                    <TableCell className={`font-mono font-bold ${p.highlight ? "text-[19px] text-attack" : "text-[16px] text-text-primary"}`}>
+                      {p.amount}
+                    </TableCell>
+                    <TableCell className="text-right text-text-secondary sm:text-left">{p.winners}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <p className="mt-[18px] border-t border-dashed border-border pt-4 text-[13px] text-text-muted">
+              ※ 상금 규모는 스폰서십 확정에 따라 변경될 수 있습니다.
+            </p>
           </div>
         </div>
       </section>
