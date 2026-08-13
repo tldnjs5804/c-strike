@@ -21,28 +21,28 @@ export const MATCH_FLOW = {
 export const VULN_RELEASE_HOURS = [0, 2, 4, 6, 8];
 
 export const PURPOSES = [
-  "우수 학생 발굴 및 전공 분야 재학생들의 실전형 공격·방어 역량 강화 및 팀 기반 협업 능력 배양",
-  "실제 침해 대응 환경을 모사한 Attack-Defense 방식 운영을 통한 실무형 보안 인재 발굴",
-  "청주대학교 RISE 사업 연계 사이버보안 교육 생태계 내 정례 대회 체계 수립 및 향후 독립 운영 기반 마련",
+  "실전형 공격·방어 역량 강화 · 팀 협업 능력 배양",
+  "실무형 보안 인재 발굴",
+  "정례 대회 체계 수립 · 독립 운영 기반 마련",
 ];
 
 export const RULES = [
   { term: "방식", value: "Attack & Defense" },
-  { term: "네트워크", value: "OpenVPN 기반 대회 전용 내부망, 참가자망·운영망 독립 운영" },
-  { term: "팀 환경", value: "컨테이너 기반 독립 운영, 원클릭 리셋 지원" },
-  { term: "채점", value: "플래그 자동 생성·주입, 공격/피공격/시각/취약점 정보로 추적·부정행위 검증" },
-  { term: "소통 채널", value: "Discord 채널·스레드로 공지·장애·이의제기 접수, 티켓 시스템 연동" },
+  { term: "네트워크", value: "OpenVPN 전용 내부망 · 참가자망/운영망 분리" },
+  { term: "팀 환경", value: "컨테이너 기반 · 원클릭 리셋" },
+  { term: "채점", value: "플래그 자동 생성 · 공격 로그 기반 부정행위 검증" },
+  { term: "소통 채널", value: "Discord · 티켓 시스템 연동" },
 ];
 
 export const TARGETS = [
-  { tag: "WEB", desc: "로그인 우회, 데이터베이스 조작, 서버 요청 변조 등 웹 서비스 취약점" },
-  { tag: "PWNABLE", desc: "메모리 취약점을 활용한 프로그램 제어 취약점 (바이너리)" },
-  { tag: "기타", desc: "네트워크 프로토콜, 암호 취약점 등 선택적 포함" },
+  { tag: "WEB", desc: "로그인 우회 · DB 조작 · 요청 변조" },
+  { tag: "PWNABLE", desc: "메모리 취약점 기반 바이너리 익스플로잇" },
+  { tag: "기타", desc: "네트워크 · 암호 취약점 (선택)" },
 ];
 
 export const TARGETS_NOTE = {
-  lead: "팀별 문제 세트는 다르게, 난이도는 동등하게 구성",
-  rest: "해 공정성을 확보합니다. 공개 일정은 위 타임라인을 참고하세요.",
+  lead: "팀별 문제는 다르게, 난이도는 동일하게",
+  rest: " — 공정성을 확보합니다.",
 };
 
 export const BONUS_STATS = [
