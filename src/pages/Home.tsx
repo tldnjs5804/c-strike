@@ -183,36 +183,36 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="reveal mt-16 rounded-[14px] border border-attack/25 bg-bg-card p-8 sm:p-10">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-attack/30 bg-attack/10 text-attack">
-                <Trophy className="h-5 w-5" strokeWidth={1.75} />
+          <div className="reveal mt-16 rounded-[16px] border border-attack/25 bg-bg-card p-9 sm:p-14">
+            <div className="mb-9 flex items-center gap-4">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-attack/30 bg-attack/10 text-attack">
+                <Trophy className="h-7 w-7" strokeWidth={1.75} />
               </span>
-              <h3 className="text-[24px] font-bold text-text-primary">대회 상금</h3>
+              <h3 className="text-[32px] font-bold text-text-primary">대회 상금</h3>
             </div>
             <Table>
               <TableHeader>
                 <TableRow className="hover:bg-transparent">
-                  <TableHead>구분</TableHead>
-                  <TableHead>상금</TableHead>
-                  <TableHead className="text-right sm:text-left">인원</TableHead>
+                  <TableHead className="text-[13px] py-4">구분</TableHead>
+                  <TableHead className="text-[13px] py-4">상금</TableHead>
+                  <TableHead className="text-right text-[13px] py-4 sm:text-left">인원</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody className="reveal stagger-children">
                 {PRIZES.map((p) => (
                   <TableRow key={p.tier} className={p.highlight ? "bg-gradient-to-r from-attack/10 to-transparent" : ""}>
-                    <TableCell className={`font-semibold ${p.highlight ? "text-[16px] text-attack" : "text-text-primary"}`}>
+                    <TableCell className={`py-6 font-semibold ${p.highlight ? "text-[20px] text-attack" : "text-[18px] text-text-primary"}`}>
                       {p.tier}
                     </TableCell>
-                    <TableCell className={`font-mono font-bold ${p.highlight ? "text-[19px] text-attack" : "text-[16px] text-text-primary"}`}>
+                    <TableCell className={`py-6 font-mono font-bold ${p.highlight ? "text-[26px] text-attack" : "text-[21px] text-text-primary"}`}>
                       {p.amount}
                     </TableCell>
-                    <TableCell className="text-right text-text-secondary sm:text-left">{p.winners}</TableCell>
+                    <TableCell className="py-6 text-right text-[16px] text-text-secondary sm:text-left">{p.winners}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
-            <p className="mt-[18px] border-t border-dashed border-border pt-4 text-[13px] text-text-muted">
+            <p className="mt-6 border-t border-dashed border-border pt-4 text-[14px] text-text-muted">
               ※ 상금 규모는 스폰서십 확정에 따라 변경될 수 있습니다.
             </p>
           </div>
