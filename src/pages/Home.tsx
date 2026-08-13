@@ -60,13 +60,19 @@ export default function Home() {
         <HeroVisual />
         <div className="relative mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-6 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
           <div className="hero-stagger">
-            <p className="mb-5 font-mono text-[14px] font-semibold uppercase tracking-[0.16em] text-defend">
-              {EVENT.eyebrow}
-            </p>
+            <div className="relative">
+              <div className="pointer-events-none absolute -left-4 -top-[112px] w-[340px] max-w-none opacity-[0.94] sm:left-6 sm:-top-[130px] sm:w-[400px]">
+                <KeyVisual />
+              </div>
 
-            <h1 className="mb-6 font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[0.97] tracking-tight text-text-primary">
-              {EVENT.name} <span className="text-attack">{EVENT.year}</span>
-            </h1>
+              <p className="relative z-10 mb-5 font-mono text-[14px] font-semibold uppercase tracking-[0.16em] text-defend">
+                {EVENT.eyebrow}
+              </p>
+
+              <h1 className="relative z-10 mb-6 font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[0.97] tracking-tight text-text-primary">
+                {EVENT.name} <span className="text-attack">{EVENT.year}</span>
+              </h1>
+            </div>
 
             <div className="mb-7 flex flex-wrap gap-4 font-mono text-[17.5px] font-bold tracking-[0.06em]">
               <span className="text-attack">{EVENT.slogan[0]}</span>
@@ -76,7 +82,7 @@ export default function Home() {
 
             <p className="mb-10 max-w-[480px] text-[19px] leading-relaxed text-text-secondary">{EVENT.desc}</p>
 
-            <div className="mb-11 flex flex-wrap items-center gap-5">
+            <div className="flex flex-wrap items-center gap-5">
               <Button asChild size="lg">
                 <Link to="/apply" className="group">
                   지금 신청하기
@@ -84,10 +90,6 @@ export default function Home() {
                 </Link>
               </Button>
               <span className="font-mono text-[14.5px] text-text-secondary">9월 · 11월 대회 예정</span>
-            </div>
-
-            <div className="border-t border-border pt-7">
-              <KeyVisual />
             </div>
           </div>
 
