@@ -27,6 +27,7 @@ import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
 import TerminalLog from "../components/TerminalLog";
 import TitleIcon from "../components/TitleIcon";
+import SectionDots from "../components/SectionDots";
 import { Box, Coffee, Crosshair, Flag, MessageSquare, Network, Trophy } from "lucide-react";
 
 const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
@@ -45,8 +46,10 @@ export default function Home() {
 
   return (
     <>
+      <SectionDots />
+
       {/* ---------- HERO ---------- */}
-      <header className="relative h-screen snap-start overflow-x-hidden overflow-y-auto border-b border-border pb-16 pt-[100px] sm:pb-24 sm:pt-[140px]">
+      <header id="hero" className="relative h-screen snap-start overflow-x-hidden overflow-y-auto border-b border-border pb-16 pt-[100px] sm:pb-24 sm:pt-[140px]">
         <div
           className="pointer-events-none absolute -left-32 -top-40 h-[420px] w-[420px] rounded-full opacity-[0.16] blur-[110px]"
           style={{ background: "var(--color-attack)" }}
