@@ -69,7 +69,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 68px;
   color-scheme: dark;
 }
 
@@ -204,5 +205,8 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  html {
+    scroll-snap-type: none !important;
   }
 }
