@@ -26,7 +26,7 @@ import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
 import TerminalLog from "../components/TerminalLog";
-import KeyVisual from "../components/KeyVisual";
+import TitleGlow from "../components/TitleGlow";
 import { Box, Coffee, Crosshair, Flag, MessageSquare, Network, Trophy } from "lucide-react";
 
 const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
@@ -60,21 +60,12 @@ export default function Home() {
         <HeroVisual />
         <div className="relative mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-6 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
           <div className="hero-stagger">
+            <p className="mb-5 font-mono text-[14px] font-semibold uppercase tracking-[0.16em] text-defend">
+              {EVENT.eyebrow}
+            </p>
+
             <div className="relative">
-              <div
-                className="pointer-events-none absolute -left-4 -top-[100px] w-[320px] max-w-none opacity-[0.92] sm:left-6 sm:-top-[115px] sm:w-[370px]"
-                style={{
-                  WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 55%, transparent 78%)",
-                  maskImage: "linear-gradient(to bottom, black 0%, black 55%, transparent 78%)",
-                }}
-              >
-                <KeyVisual />
-              </div>
-
-              <p className="relative z-10 mb-5 font-mono text-[14px] font-semibold uppercase tracking-[0.16em] text-defend">
-                {EVENT.eyebrow}
-              </p>
-
+              <TitleGlow />
               <h1 className="relative z-10 mb-6 font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[0.97] tracking-tight text-text-primary">
                 {EVENT.name} <span className="text-attack">{EVENT.year}</span>
               </h1>
