@@ -1,6 +1,6 @@
 export default function KeyVisual() {
   return (
-    <svg viewBox="0 0 220 220" className="h-[168px] w-[168px]" aria-hidden="true">
+    <svg viewBox="0 0 220 220" className="h-auto w-full max-w-[440px]" aria-hidden="true">
       <defs>
         <clipPath id="kv-shield-clip">
           <path d="M110,14 L188,46 L188,108 C188,158 154,192 110,206 C66,192 32,158 32,108 L32,46 Z" />
