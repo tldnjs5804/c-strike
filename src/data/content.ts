@@ -87,10 +87,10 @@ export const AMENITIES = [
 ];
 
 export const JOIN_ITEMS = [
-  { label: "일정 · 시간 · 장소", value: "확정 전 · Coming soon", pending: true },
-  { label: "참가 자격 · 팀 구성", value: "확정 전 · Coming soon", pending: true },
-  { label: "대회 방식", value: "Attack & Defense (위 대회 소개 참조)", pending: false },
-  { label: "참가 혜택", value: "확정 전 · Coming soon", pending: true },
+  { label: "일정 · 시간 · 장소", value: "확정 전", pending: true },
+  { label: "참가 자격 · 팀 구성", value: "확정 전", pending: true },
+  { label: "대회 방식", value: "Attack & Defense", pending: false },
+  { label: "참가 혜택", value: "확정 전", pending: true },
 ];
 
 export const BOARD_POSTS = [

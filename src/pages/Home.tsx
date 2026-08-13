@@ -304,13 +304,17 @@ export default function Home() {
           <div className="reveal rounded-[14px] border border-border bg-bg-card p-6 sm:p-8">
             <div className="reveal stagger-children mb-7 flex flex-col divide-y divide-border">
               {JOIN_ITEMS.map((item) => (
-                <div key={item.label} className="flex flex-col gap-1 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-baseline sm:gap-8">
-                  <span className="w-full shrink-0 text-[14px] font-semibold text-text-secondary sm:w-[168px]">
+                <div key={item.label} className="flex flex-col gap-2 py-5 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:gap-8">
+                  <span className="w-full shrink-0 font-mono text-[12px] font-bold uppercase tracking-wide text-defend sm:w-[168px]">
                     {item.label}
                   </span>
-                  <span className={item.pending ? "text-[14.5px] text-text-muted" : "text-[14.5px] font-medium text-text-primary"}>
-                    {item.value}
-                  </span>
+                  {item.pending ? (
+                    <Badge variant="muted" className="w-fit text-text-secondary">
+                      {item.value}
+                    </Badge>
+                  ) : (
+                    <span className="text-[15.5px] font-semibold text-text-primary">{item.value}</span>
+                  )}
                 </div>
               ))}
             </div>
