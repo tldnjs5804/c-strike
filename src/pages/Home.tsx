@@ -28,9 +28,25 @@ import HeroVisual from "../components/HeroVisual";
 import TerminalLog from "../components/TerminalLog";
 import TitleIcon from "../components/TitleIcon";
 import SectionDots from "../components/SectionDots";
-import { Box, Coffee, Crosshair, Flag, MessageSquare, Network, Trophy } from "lucide-react";
+import {
+  Box,
+  Building2,
+  Coffee,
+  Cpu,
+  Crosshair,
+  Flag,
+  Globe,
+  Lock,
+  MessageSquare,
+  Network,
+  ShieldCheck,
+  Target,
+  Trophy,
+} from "lucide-react";
 
 const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
+const PURPOSE_ICONS = [Target, ShieldCheck, Building2];
+const TARGET_ICONS = [Globe, Cpu, Lock];
 
 export default function Home() {
   const { hash } = useLocation();
@@ -103,19 +119,21 @@ export default function Home() {
           <Eyebrow>대회 소개</Eyebrow>
           <SectionTitle>대회가 만드는 것</SectionTitle>
           <SectionSub>
-            단순 문제풀이(Jeopardy)를 넘어선 <b className="text-text-primary">실전형 공격·방어(Attack-Defense)</b> 대회.
-            실제 침해 대응 환경을 모사해 진짜 실무형 보안 인재를 발굴합니다.
+            단순 문제풀이(Jeopardy)를 넘어선 <b className="text-text-primary">실전형 공격·방어(Attack-Defense)</b> 대회
           </SectionSub>
 
-          <div className="reveal stagger-children mb-16 flex flex-col gap-3.5">
-            {PURPOSES.map((p) => (
-              <div key={p} className="flex items-start gap-3.5 rounded-[10px] border border-border bg-bg-card px-5 py-[18px]">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-defend/10 text-[13px] font-bold text-defend">
-                  ✓
-                </span>
-                <p className="text-[16.5px] leading-[1.7] text-text-primary">{p}</p>
-              </div>
-            ))}
+          <div className="reveal stagger-children mb-16 grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+            {PURPOSES.map((p, i) => {
+              const Icon = PURPOSE_ICONS[i];
+              return (
+                <div key={p} className="flex flex-col items-start gap-3 rounded-[10px] border border-border bg-bg-card px-5 py-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                  <p className="text-[15.5px] leading-[1.6] text-text-primary">{p}</p>
+                </div>
+              );
+            })}
           </div>
 
           <h3 className="reveal mb-2 text-[21.5px] font-bold text-text-primary">어떻게 진행되나요?</h3>
@@ -149,12 +167,20 @@ export default function Home() {
           <h3 className="reveal mb-5 text-[19.5px] font-bold text-text-primary">공략해야 할 취약점</h3>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
             <div className="reveal stagger-children flex flex-col gap-3">
-              {TARGETS.map((t) => (
-                <div key={t.tag} className="flex items-baseline gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
-                  <span className="min-w-16 shrink-0 font-mono text-[13px] font-bold text-attack">{t.tag}</span>
-                  <p className="text-[15.5px] leading-relaxed text-text-primary">{t.desc}</p>
-                </div>
-              ))}
+              {TARGETS.map((t, i) => {
+                const Icon = TARGET_ICONS[i];
+                return (
+                  <div key={t.tag} className="flex items-center gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-attack/30 bg-attack/10 text-attack">
+                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                    </span>
+                    <div className="flex flex-1 flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                      <span className="font-mono text-[13px] font-bold text-attack">{t.tag}</span>
+                      <p className="text-[15px] leading-relaxed text-text-primary">{t.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <Alert variant="defend" className="reveal">
               <b className="text-text-primary">{TARGETS_NOTE.lead}</b>
@@ -170,8 +196,7 @@ export default function Home() {
               <div>
                 <h3 className="mb-3 text-[26px] font-bold text-text-primary">보너스 구간</h3>
                 <p className="text-[16px] leading-relaxed text-text-secondary">
-                  A/D 서비스와 별개로 <b className="text-text-primary">모든 팀이 접근 가능한 공용 Jeopardy 구역</b>.
-                  공방 소강상태 시 몰입도를 유지하고 팀 전략 다양성을 부여합니다.
+                  A/D와 별개로 <b className="text-text-primary">모든 팀이 접근 가능한 공용 Jeopardy 구역</b>
                 </p>
               </div>
               <div className="reveal stagger-children flex flex-col gap-3.5">
@@ -227,9 +252,8 @@ export default function Home() {
           <Eyebrow>운영 성과</Eyebrow>
           <SectionTitle>지난 대회는 이랬습니다</SectionTitle>
           <SectionSub>
-            CJU C-Strike 사이버공격방어대회 · 2026년 6월 22일 진행.{" "}
-            <b className="text-text-primary">처음 참가하는 분들이 신뢰하고 신청할 수 있도록</b> 지난 대회 결과를
-            그대로 공개합니다.
+            <b className="text-text-primary">처음 참가하는 분들이 신뢰하고 신청할 수 있도록</b> 지난 대회 결과를 그대로
+            공개합니다.
           </SectionSub>
 
           <div className="reveal stagger-children mb-12 grid grid-cols-1 overflow-hidden rounded-xl border border-border sm:grid-cols-2 lg:grid-cols-4">
