@@ -26,7 +26,7 @@ import MatchFlow from "../components/MatchFlow";
 import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
 import TerminalLog from "../components/TerminalLog";
-import TitleGlow from "../components/TitleGlow";
+import TitleIcon from "../components/TitleIcon";
 import { Box, Coffee, Crosshair, Flag, MessageSquare, Network, Trophy } from "lucide-react";
 
 const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
@@ -64,9 +64,9 @@ export default function Home() {
               {EVENT.eyebrow}
             </p>
 
-            <div className="relative">
-              <TitleGlow />
-              <h1 className="relative z-10 mb-6 font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[0.97] tracking-tight text-text-primary">
+            <div className="mb-6 flex items-center gap-4 sm:gap-5">
+              <TitleIcon />
+              <h1 className="font-mono text-[clamp(38px,6vw,76px)] font-extrabold leading-[0.97] tracking-tight text-text-primary">
                 {EVENT.name} <span className="text-attack">{EVENT.year}</span>
               </h1>
             </div>
