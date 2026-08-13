@@ -61,7 +61,13 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-6 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
           <div className="hero-stagger">
             <div className="relative">
-              <div className="pointer-events-none absolute -left-4 -top-[112px] w-[340px] max-w-none opacity-[0.94] sm:left-6 sm:-top-[130px] sm:w-[400px]">
+              <div
+                className="pointer-events-none absolute -left-4 -top-[100px] w-[320px] max-w-none opacity-[0.92] sm:left-6 sm:-top-[115px] sm:w-[370px]"
+                style={{
+                  WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 55%, transparent 78%)",
+                  maskImage: "linear-gradient(to bottom, black 0%, black 55%, transparent 78%)",
+                }}
+              >
                 <KeyVisual />
               </div>
 

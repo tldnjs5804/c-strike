@@ -7,14 +7,6 @@ const LOG_LINES: { time: string; tag?: "DEFEND" | "ATTACK" | "SYSTEM" | "SCORE";
   { time: "14:04:51", tag: "ATTACK", text: "team_04 → team_01 web-01 FLAG_CAPTURED" },
   { time: "14:05:18", tag: "DEFEND", text: "team_05 patched pwn-01" },
   { time: "14:05:49", tag: "SCORE", text: "team_01 32,730 · team_02 21,272" },
-  { time: "14:06:22", tag: "ATTACK", text: "team_02 → team_06 crypto-01 FLAG_CAPTURED" },
-  { time: "14:06:58", tag: "DEFEND", text: "team_01 리셋 완료 · 서비스 정상화 OK" },
-  { time: "14:07:15", tag: "SYSTEM", text: "취약점팩 3/5 공개 — web-03" },
-  { time: "14:07:49", tag: "ATTACK", text: "team_03 → team_04 web-03 FLAG_CAPTURED" },
-  { time: "14:08:20", tag: "DEFEND", text: "team_06 patched crypto-01" },
-  { time: "14:08:57", tag: "ATTACK", text: "team_05 → team_02 web-01 FLAG_CAPTURED" },
-  { time: "14:09:31", tag: "DEFEND", text: "team_04 patched web-03" },
-  { time: "14:09:59", tag: "SCORE", text: "team_01 38,410 · team_03 29,655" },
 ];
 
 const TAG_CLASS: Record<string, string> = {
