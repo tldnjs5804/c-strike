@@ -123,11 +123,14 @@ export default function Home() {
             {PURPOSES.map((p, i) => {
               const Icon = PURPOSE_ICONS[i];
               return (
-                <div key={p} className="flex flex-col items-start gap-3 rounded-[10px] border border-border bg-bg-card px-5 py-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
-                    <Icon className="h-5 w-5" strokeWidth={1.75} />
-                  </span>
-                  <p className="text-[15.5px] leading-[1.6] text-text-primary">{p}</p>
+                <div key={p.title} className="flex flex-col gap-3 rounded-[10px] border border-border bg-bg-card px-5 py-5">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+                    <span className="text-[17px] font-bold text-text-primary">{p.title}</span>
+                  </div>
+                  <p className="text-[14.5px] leading-[1.6] text-text-secondary">{p.desc}</p>
                 </div>
               );
             })}

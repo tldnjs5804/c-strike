@@ -21,9 +21,9 @@ export const MATCH_FLOW = {
 export const VULN_RELEASE_HOURS = [0, 2, 4, 6, 8];
 
 export const PURPOSES = [
-  "실전형 공격·방어 역량 강화 · 팀 협업 능력 배양",
-  "실무형 보안 인재 발굴",
-  "정례 대회 체계 수립 · 독립 운영 기반 마련",
+  { title: "역량 강화", desc: "실전형 공격·방어 역량 강화 · 팀 협업 능력 배양" },
+  { title: "인재 발굴", desc: "실무형 보안 인재 발굴" },
+  { title: "체계 수립", desc: "정례 대회 체계 수립 · 독립 운영 기반 마련" },
 ];
 
 export const RULES = [
