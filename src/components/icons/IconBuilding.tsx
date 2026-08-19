@@ -1,6 +1,6 @@
 export default function IconBuilding({ className }: { className?: string }) {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="150.00 213.00 30.00 30.00">
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="146.93 208.12 36.14 36.14">
   <path d="M170.25,219.50 C170.25,226.50 159.75,226.50 159.75,219.50 C159.75,212.50 170.25,212.50 170.25,219.50" fill="none" stroke="currentColor" strokeWidth="2.12" strokeLinecap="round" strokeLinejoin="round"/>
   <path d="M162.62,219.50 L164.25,221.12 L167.50,217.88" fill="none" stroke="rgb(45,227,200)" strokeWidth="2.50" strokeLinecap="round" strokeLinejoin="round"/>
   <path d="M162.62,226.25 L167.38,226.25 C167.72,226.25 168.00,226.59 168.00,226.88 L168.00,239.25 C168.00,239.59 167.72,239.88 167.38,239.88 L162.62,239.88 C162.28,239.88 162.00,239.53 162.00,239.25 L162.00,226.88 C162.00,226.53 162.28,226.25 162.62,226.25" fill="none" stroke="currentColor" strokeWidth="2.12" strokeLinecap="round" strokeLinejoin="round"/>
