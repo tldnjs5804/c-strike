@@ -16,7 +16,9 @@ export default function Logo({ className }: { className?: string }) {
         stroke="var(--color-bg-base)"
         strokeWidth="3"
       />
-      <path d="M42,34 L42,66 L64,50 Z" fill="white" strokeLinejoin="round" />
+      <line x1="41" y1="30" x2="41" y2="70" stroke="white" strokeWidth="4.5" strokeLinecap="round" />
+      <path d="M41,35 L63,43 L41,51 Z" fill="white" strokeLinejoin="round" />
+      <circle cx="41" cy="70" r="3.2" fill="white" />
     </svg>
   );
 }

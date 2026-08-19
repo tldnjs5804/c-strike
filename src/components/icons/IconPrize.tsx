@@ -1,6 +1,6 @@
 export default function IconPrize({ className }: { className?: string }) {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="508.50 327.00 39.00 39.00">
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="512.06 329.78 33.91 33.91">
   <path d="M517.34,336.68 L526.91,336.68 L526.91,339.79 C526.91,342.43 524.77,344.57 522.12,344.57 C519.48,344.57 517.34,342.43 517.34,339.79 L517.34,336.68" fill="rgb(158,115,34)" stroke="rgb(158,115,34)" strokeWidth="2.03" strokeLinecap="round" strokeLinejoin="round"/>
   <path d="M520.09,346.96 L524.16,346.96 C524.49,346.96 524.75,347.29 524.75,347.56 L524.75,348.75 C524.75,349.09 524.48,349.35 524.16,349.35 L520.09,349.35 C519.76,349.35 519.49,349.02 519.49,348.75 L519.49,347.56 C519.49,347.23 519.76,346.96 520.09,346.96" fill="rgb(158,115,34)" stroke="rgb(158,115,34)" strokeWidth="2.03" strokeLinecap="round" strokeLinejoin="round"/>
   <path d="M521.05,349.36 L523.20,349.36 C523.53,349.36 523.80,349.69 523.80,349.95 L523.80,355.45 C523.80,355.79 523.53,356.05 523.20,356.05 L521.05,356.05 C520.72,356.05 520.45,355.72 520.45,355.45 L520.45,349.95 C520.45,349.62 520.72,349.36 521.05,349.36" fill="rgb(158,115,34)" stroke="rgb(158,115,34)" strokeWidth="2.03" strokeLinecap="round" strokeLinejoin="round"/>
