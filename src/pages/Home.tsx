@@ -40,6 +40,7 @@ import IconLock from "../components/icons/IconLock";
 import IconEtc from "../components/icons/IconEtc";
 import IconPrize from "../components/icons/IconPrize";
 import IconCoffee from "../components/icons/IconCoffee";
+import { Scale } from "lucide-react";
 
 const RULE_ICONS = [IconSwords, IconNetwork, IconTeam, IconPodium, IconChat];
 const PURPOSE_ICONS = [IconTarget, IconTalent, IconBuilding];
@@ -163,7 +164,7 @@ export default function Home() {
           </div>
 
           <h3 className="reveal mb-5 text-[19.5px] font-bold text-text-primary">공략해야 할 취약점</h3>
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch">
             <div className="reveal stagger-children flex flex-col gap-3">
               {TARGETS.map((t, i) => {
                 const Icon = TARGET_ICONS[i];
@@ -180,9 +181,17 @@ export default function Home() {
                 );
               })}
             </div>
-            <Alert variant="defend" className="reveal">
-              <b className="text-text-primary">{TARGETS_NOTE.lead}</b>
-              {TARGETS_NOTE.rest}
+            <Alert variant="defend" className="reveal flex h-full flex-col justify-center gap-4 px-8 pb-12 pt-6">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
+                <Scale className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <p className="text-[19px] leading-relaxed text-text-secondary">
+                <b className="text-text-primary">{TARGETS_NOTE.lead}</b>
+                {TARGETS_NOTE.rest}
+              </p>
+              <p className="text-[14px] leading-relaxed text-text-muted">
+                모든 팀이 같은 조건에서 실력을 겨루도록, 문제 구성과 난이도 편차를 운영진이 사전에 검증합니다.
+              </p>
             </Alert>
           </div>
 
