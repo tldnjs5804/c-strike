@@ -27,25 +27,23 @@ import InquiryForm from "../components/InquiryForm";
 import HeroVisual from "../components/HeroVisual";
 import TerminalLog from "../components/TerminalLog";
 import TitleIcon from "../components/TitleIcon";
-import {
-  Box,
-  Building2,
-  Coffee,
-  Cpu,
-  Crosshair,
-  Flag,
-  Globe,
-  Lock,
-  MessageSquare,
-  Network,
-  ShieldCheck,
-  Target,
-  Trophy,
-} from "lucide-react";
+import IconTarget from "../components/icons/IconTarget";
+import IconTalent from "../components/icons/IconTalent";
+import IconBuilding from "../components/icons/IconBuilding";
+import IconSwords from "../components/icons/IconSwords";
+import IconNetwork from "../components/icons/IconNetwork";
+import IconTeam from "../components/icons/IconTeam";
+import IconPodium from "../components/icons/IconPodium";
+import IconChat from "../components/icons/IconChat";
+import IconWeb from "../components/icons/IconWeb";
+import IconLock from "../components/icons/IconLock";
+import IconEtc from "../components/icons/IconEtc";
+import IconPrize from "../components/icons/IconPrize";
+import IconCoffee from "../components/icons/IconCoffee";
 
-const RULE_ICONS = [Crosshair, Network, Box, Flag, MessageSquare];
-const PURPOSE_ICONS = [Target, ShieldCheck, Building2];
-const TARGET_ICONS = [Globe, Cpu, Lock];
+const RULE_ICONS = [IconSwords, IconNetwork, IconTeam, IconPodium, IconChat];
+const PURPOSE_ICONS = [IconTarget, IconTalent, IconBuilding];
+const TARGET_ICONS = [IconWeb, IconLock, IconEtc];
 
 export default function Home() {
   const { hash } = useLocation();
@@ -126,7 +124,7 @@ export default function Home() {
                 <div key={p.title} className="flex flex-col gap-3 rounded-[10px] border border-border bg-bg-card px-5 py-5">
                   <div className="flex items-center gap-3">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                      <Icon className="h-5 w-5" />
                     </span>
                     <span className="text-[17px] font-bold text-text-primary">{p.title}</span>
                   </div>
@@ -151,7 +149,7 @@ export default function Home() {
               return (
                 <div key={r.term} className="flex items-start gap-4 px-5 py-5 sm:items-center sm:gap-6 sm:px-7">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
-                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    <Icon className="h-5 w-5" />
                   </span>
                   <div className="flex flex-col gap-1.5 sm:flex-row sm:flex-1 sm:items-baseline sm:gap-8">
                     <span className="w-full shrink-0 text-[19px] font-extrabold text-defend sm:w-[132px]">
@@ -172,7 +170,7 @@ export default function Home() {
                 return (
                   <div key={t.tag} className="flex items-center gap-3.5 rounded-lg border border-border bg-bg-card px-4 py-3.5">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-attack/30 bg-attack/10 text-attack">
-                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                      <Icon className="h-[18px] w-[18px]" />
                     </span>
                     <div className="flex flex-1 flex-wrap items-baseline gap-x-3 gap-y-0.5">
                       <span className="font-mono text-[13px] font-bold text-attack">{t.tag}</span>
@@ -212,8 +210,8 @@ export default function Home() {
 
           <div className="reveal mt-16 rounded-[16px] border border-attack/25 bg-bg-card p-9 sm:p-14">
             <div className="mb-9 flex items-center gap-4">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-attack/30 bg-attack/10 text-attack">
-                <Trophy className="h-7 w-7" strokeWidth={1.75} />
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center">
+                <IconPrize className="h-16 w-16" />
               </span>
               <h3 className="text-[32px] font-bold text-text-primary">대회 상금</h3>
             </div>
@@ -332,7 +330,7 @@ export default function Home() {
 
             <Card>
               <div className="mb-[18px] flex h-10 w-10 items-center justify-center rounded-lg border border-attack/30 bg-attack/10 text-attack">
-                <Coffee className="h-5 w-5" strokeWidth={1.75} />
+                <IconCoffee className="h-5 w-5" />
               </div>
               <h3 className="mb-2.5 text-[19.5px] font-bold text-text-primary">참가자 편의</h3>
               <ul className="flex flex-col gap-1.5">

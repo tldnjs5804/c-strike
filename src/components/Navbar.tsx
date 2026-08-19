@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { EVENT } from "../data/content";
 import { Button } from "./ui/button";
+import Logo from "./Logo";
 
 const NAV_ITEMS = [
   { label: "대회 소개", href: "/#about" },
@@ -35,13 +36,7 @@ export default function Navbar() {
     <nav className="fixed inset-x-0 top-0 z-[100] border-b border-border bg-bg-base/95">
       <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between px-6 sm:px-8">
         <Link to="/" className="flex items-center gap-2.5 font-mono text-[18.5px] font-bold tracking-tight">
-          <span
-            className="flex h-[26px] w-[26px] shrink-0"
-            style={{
-              background: "linear-gradient(135deg, var(--color-attack), var(--color-defend))",
-              clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-            }}
-          />
+          <Logo className="h-[26px] w-[26px] shrink-0" />
           {EVENT.name}
         </Link>
 
