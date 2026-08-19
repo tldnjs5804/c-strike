@@ -181,7 +181,7 @@ export default function Home() {
                 );
               })}
             </div>
-            <Alert variant="defend" className="reveal flex h-full flex-col justify-center gap-4 p-8">
+            <Alert variant="defend" className="reveal flex h-full flex-col justify-center gap-4 px-8 pb-12 pt-6">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-defend/30 bg-defend/10 text-defend">
                 <Scale className="h-5 w-5" strokeWidth={1.75} />
               </span>
